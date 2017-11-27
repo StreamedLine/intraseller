@@ -5,9 +5,9 @@ category = Category.create(name: 'photo')
 item1 = Item.create(bhsku: 'SODSCHX90VB', mfrsku: 'DSCHX90V/B', image: 'https://static.bhphoto.com/images/images250x250/1481216759000_1137175.jpg')
 item2 = Item.create(bhsku: 'NICPW300B', mfrsku: '26523', image: 'https://static.bhphoto.com/images/images250x250/1496213450000_1341600.jpg')
 
-question = category.questions.create(question: 'Which point and shoot cameras have built in GPS?')
+question = category.questions.create(content: 'Which point and shoot cameras have built in GPS?')
 
-question.answers.create(answer: 'See items associated with this answer')
+question.answers.create(content: 'See items associated with this answer')
 category.questions.last.answers.last.items << [item1, item2]
 
 category.save
@@ -15,36 +15,44 @@ category.save
 
 #= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =#
 
-        Category 
----------------------
+#         Category 
+# ---------------------
 
-categories have many items, through: categoryItems
+# categories have many items, through: categoryItems
 
-categories have many questions, through: categoryQuestions
+# categories have many questions, through: categoryQuestions
 
-        Item
----------------------
+#         Item
+# ---------------------
 
-items have many categories, through: categoryItems
+# items have many categories, through: categoryItems
 
-items have many links, through: itemLink
+# items have many links
 
-        Question
----------------------
+# item has many questions, thorugh: itemQuestions
 
-questions have many answers
+#         Question
+# ---------------------
 
-        Answer
----------------------
+# questions have many answers
 
-answer belongs to one question
+#         Answer
+# ---------------------
 
-    CategoryItem
----------------------
-    CategoryQuestion
----------------------
-      ItemLink
----------------------
+# answer belongs to one question
 
+#     CategoryItem
+# ---------------------
+
+#     CategoryQuestion
+# --------------------
+
+#     ItemQuestions
+# ---------------------
+
+#         Link
+# ---------------------
+#
+# belongs to item
 
 #= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =#
