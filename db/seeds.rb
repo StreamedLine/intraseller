@@ -7,8 +7,8 @@ item2 = Item.create(bhsku: 'NICPW300B', mfrsku: '26523', image: 'https://static.
 
 question = category.questions.create(content: 'Which point and shoot cameras have built in GPS?')
 
-question.answers.create(content: 'See items associated with this answer')
-category.questions.last.answers.last.items << [item1, item2]
+question.answers.create(content: 'SODSCHX90VB, NICPW300B')
+
 
 category.save
 
