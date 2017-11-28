@@ -9,12 +9,15 @@
   </head>
 
   <body>
-	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <div class="flash_message">
+      <%= render partial: 'layouts/flash_messages' %>
+    </div>
 
-  	<% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+    <header>
+      <%= render partial: 'layouts/header' %>      
+    </header>
 
     <%= yield %>
+
   </body>
 </html>
