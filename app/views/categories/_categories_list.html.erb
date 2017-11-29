@@ -1,0 +1,10 @@
+<ul>
+	<% @categories.each do |category| %>
+		<li>
+			<%= category.inspect %>
+			<br>
+			<%= link_to 'Edit', edit_category_path(category) %>
+		</li>
+		<br>
+	<% end %>
+</ul>

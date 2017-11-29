@@ -14,7 +14,8 @@
     </div>
 
     <header>
-      <%= render partial: 'layouts/header' %>      
+      <%= render partial: 'layouts/navigation' %>    
+      <h3><%= "You are signed in as #{current_user.email}" if user_signed_in? %></h3>   
     </header>
 
     <%= yield %>

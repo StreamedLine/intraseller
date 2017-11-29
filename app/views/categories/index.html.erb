@@ -1,5 +1,3 @@
 <h1>Categories#index</h1>
 
-<% @categories.each do |category| %>
-	<%= category.inspect %>
-<% end %>
+<%= render partial: 'categories_list', locals: {:@categories => @categories} %>
