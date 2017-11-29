@@ -13,6 +13,8 @@ question.answers.create(content: 'SODSCHX90VB, NICPW300B')
 category.save
 
 
+#note to self - perhaps remove link as separate table and add a link attribute to items
+
 #= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =#
 
 #         Category 

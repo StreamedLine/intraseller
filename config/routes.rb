@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
 
-
+  resources :categories, only: [:index, :show, :new, :create, :edit, :update]
 end
