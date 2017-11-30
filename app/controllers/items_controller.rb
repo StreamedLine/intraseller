@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-  	params.require(:item).permit(:bhsku, :mfrsku, :image, links_attributes: [:url])
+  	params.require(:item).permit(:bhsku, :mfrsku, :image, :links_attributes => [:url])
   end
 
 end

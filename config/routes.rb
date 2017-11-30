@@ -5,4 +5,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show, :new, :create, :edit, :update]
   resources :items, only: [:index, :show, :new, :create, :edit, :update]
+
+  resources :categories do 
+  	resources :items, only: [:index, :show, :create, :update]
+  end
 end

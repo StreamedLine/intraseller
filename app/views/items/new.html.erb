@@ -1,4 +1,5 @@
 <h1>Items#new</h1>
 
-<%= render partial: 'form', locals: {:item => @item} %>
-
+<%= form_for(@item) do |f| %>
+	<%= render partial: 'form', locals: {:f => f} %>
+<% end %>

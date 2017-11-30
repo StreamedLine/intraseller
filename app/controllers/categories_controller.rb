@@ -38,6 +38,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-  	params.require(:category).permit(:name)
+  	params.require(:category).permit(:name, items_attributes: [:bhsku, :mfrsku, :image, links_attributes: [:url]])
   end
 end
