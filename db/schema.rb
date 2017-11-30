@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130022410) do
+ActiveRecord::Schema.define(version: 20171130182009) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 20171130022410) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "label"
+    t.string "tagable_type"
+    t.integer "tagable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tagable_type", "tagable_id"], name: "index_tags_on_tagable_type_and_tagable_id"
   end
 
   create_table "users", force: :cascade do |t|

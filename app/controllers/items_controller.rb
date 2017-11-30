@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-  	params.require(:item).permit(:bhsku, :mfrsku, :image, :links_attributes => [:url])
+  	params.require(:item).permit(:bhsku, :mfrsku, :image, :links_attributes => [:url], tags_attributes: [:label])
   end
 
   def correct_item_path(item)
