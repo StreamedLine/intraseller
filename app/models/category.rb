@@ -5,4 +5,10 @@ class Category < ApplicationRecord
 	has_many :questions, :through => :categoryQuestions
 
 	# validates :name, {presence: true}
+
+	def build_item
+		item = self.items.build
+		item.links.build
+		item
+	end
 end

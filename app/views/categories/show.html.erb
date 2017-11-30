@@ -3,3 +3,14 @@
 <%= @category.inspect %>
 <br>
 <%= link_to 'Edit', edit_category_path(@category) %>
+
+<h2>Items</h2>
+<% @category.items.each do |item| %>
+	<p>
+		<%= item.inspect %>
+		<%= link_to 'Edit', edit_item_path(item) %>
+	</p>
+<% end %>
+
+<h3>add item</h3>
+<%= render partial: 'items/form', locals: {:item => @category.build_item} %>

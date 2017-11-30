@@ -1,4 +1,4 @@
-<%= form_for(@item) do |f| %>
+<%= form_for(item) do |f| %>
 	<%= f.label :bhsku %>
 	<%= f.text_field :bhsku %>
 	<br>
@@ -16,6 +16,6 @@
 		<%= ff.text_field :url %>	
 	<% end %>
 	<br>
-	
+
 	<%= f.submit %>
 <% end %>
