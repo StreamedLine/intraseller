@@ -8,6 +8,9 @@ class Item < ApplicationRecord
 
 	accepts_nested_attributes_for :links, reject_if: proc { |attributes| attributes['url'].blank? }
 
-	
+	def tags_attributes=(tag_attributes)
+		binding.pry
+		tag = Tag.create_or_find_by_name(tag_attributes)
+	end
 
 end

@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def new
   	@item = Item.new
     @item.links.build
+    @item.tags.build
   end
 
   def create
@@ -25,6 +26,7 @@ class ItemsController < ApplicationController
   def edit
   	@item = Item.find(params[:id])
     @item.links.build
+    @item.tags.build
   end
 
   def update

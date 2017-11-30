@@ -9,6 +9,7 @@ class CategoriesController < ApplicationController
 
   def new
   	@category = Category.new
+    @category.tags.build
   end
 
   def create
@@ -23,6 +24,7 @@ class CategoriesController < ApplicationController
 
   def edit
   	@category = Category.find(params[:id])
+    @category.tags.build
   end
 
   def update
