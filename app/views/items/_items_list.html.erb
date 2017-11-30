@@ -1,0 +1,10 @@
+<ul>
+	<% @items.each do |item| %>
+		<li>
+			<%= item.inspect %>
+			<br>
+			<%= link_to 'Edit', edit_item_path(item) %>
+		</li>
+		<br>
+	<% end %>
+</ul>
