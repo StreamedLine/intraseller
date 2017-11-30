@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-  root 'welcome#home'
+  root "welcome#home"
 
   resources :categories, only: [:index, :show, :new, :create, :edit, :update]
   resources :items, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :categories do 
-  	resources :items, only: [:index, :show, :create, :update]
+  	resources :items, only: [:index, :show, :create, :update], :controller => "category_items"
   end
 end

@@ -11,7 +11,4 @@ RSpec.describe Link, type: :model do
 		expect(@link.url).to eq("https://www.bhphotovideo.com/c/product/1137175-REG/sony_dschx90v_b_cyber_shot_dsc_hx90v_digital_camera.html")
 	end
 
-	it "has an item_id" do 
-		expect(@link).to have_attribute(:item_id)
-	end
 end
