@@ -1,16 +1,10 @@
 <h1>Categories#show</h1>
 
-<%= @category.inspect %>
-<br>
-<%= link_to 'Edit', edit_category_path(@category) %>
+<%= render partial: 'category', locals: {:category => @category} %>
 
 <h2>Items</h2>
-<% @category.items.each do |item| %>
-	<p>
-		<%= item.inspect %>
-		<%= link_to 'Edit', edit_item_path(item) %>
-	</p>
-<% end %>
+<%= render partial: 'items/item', collection: @category.items, as: :item %>
+
 
 <h3>add item</h3>
 <%= form_for([@category, @category.build_item]) do |f| %>

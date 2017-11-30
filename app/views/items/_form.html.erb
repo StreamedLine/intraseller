@@ -16,9 +16,9 @@
 <% end %>
 <br>
 
-<h3>add tag (optional)</h3>
+<h3>Item tags (optional)</h3>
 <%= f.fields_for :tags do |ff| %>
-	<%= ff.label :label, 'Tag' %>
+	<%= ff.label :label, 'tag' %>
 	<%= ff.text_field :label %>
 <% end %>
 <br>

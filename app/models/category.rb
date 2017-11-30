@@ -10,6 +10,7 @@ class Category < ApplicationRecord
 	def build_item
 		item = self.items.build
 		item.links.build
+		item.tags.build
 		item
 	end
 end
