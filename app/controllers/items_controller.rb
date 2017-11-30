@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
   	@item = new_item_from_params
 
   	if save_item
+      flash[:notice] = "Success! #{@item.bhsku} saved"
   		redirect_to correct_item_path(@item)
   	else
       flash[:error] = "#{@item.errors.full_messages.first}"
@@ -34,6 +35,7 @@ class ItemsController < ApplicationController
   	@item = Item.find(params[:id])
 
   	if @item.update(item_params)
+      flash[:notice] = "Success! #{@item.bhsku} updated"
   		redirect_to correct_item_path(@item)
   	else
       flash[:error] = "#{@item.errors.full_messages.first}"

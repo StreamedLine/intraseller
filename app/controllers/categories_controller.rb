@@ -16,8 +16,10 @@ class CategoriesController < ApplicationController
   	@category = Category.new(category_params)
 
   	if @category.save
+      flash[:notice] = "Success! #{@category.name} added"
   		redirect_to category_path(@category)
   	else
+      flash[:error] = "#{@category.errors.full_messages.first}"
   		render :new
   	end
   end
@@ -31,8 +33,10 @@ class CategoriesController < ApplicationController
   	@category = Category.find(params[:id])
 
   	if @category.update(category_params)
+      flash[:notice] = "Success! #{@category.name} saved"
   		redirect_to category_path(@category)
   	else
+      flash[:error] = "#{@category.errors.full_messages.first}"
   		render :edit
   	end
   end
