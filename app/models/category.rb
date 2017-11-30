@@ -5,7 +5,7 @@ class Category < ApplicationRecord
 	has_many :questions, :through => :categoryQuestions
 	has_many :tags, as: :tagable
 
-	# validates :name, {presence: true}
+	validates :name, {presence: true}
 
 	def build_item
 		item = self.items.build

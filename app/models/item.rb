@@ -6,6 +6,8 @@ class Item < ApplicationRecord
 	has_many :links, as: :linkable
 	has_many :tags, as: :tagable
 
+	validates :bhsku, presence: true
+
 	accepts_nested_attributes_for :links, reject_if: proc { |attributes| attributes['url'].blank? }
 
 	def tags_attributes=(tags_attributes)

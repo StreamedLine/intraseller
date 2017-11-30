@@ -5,4 +5,5 @@ class Question < ApplicationRecord
 	has_many :items, :through => :itemQuestions
 	has_many :answers
 	
+	validates :content, presence: true
 end

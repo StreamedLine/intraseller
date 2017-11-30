@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   	if save_item
   		redirect_to correct_item_path(@item)
   	else
+      flash[:error] = "#{@item.errors.full_messages.first}"
   		render :new
   	end
   end
@@ -35,6 +36,7 @@ class ItemsController < ApplicationController
   	if @item.update(item_params)
   		redirect_to correct_item_path(@item)
   	else
+      flash[:error] = "#{@item.errors.full_messages.first}"
   		render :edit
   	end
   end
