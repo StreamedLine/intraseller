@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
+    @item.links.build
   end
 
   def create
@@ -23,6 +24,7 @@ class ItemsController < ApplicationController
 
   def edit
   	@item = Item.find(params[:id])
+    @item.links.build
   end
 
   def update
@@ -38,6 +40,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-  	params.require(:item).permit(:bhsku, :mfrsku, :image)
+  	params.require(:item).permit(:bhsku, :mfrsku, :image, links_attributes: [:url])
   end
+
 end

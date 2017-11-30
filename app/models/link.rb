@@ -1,3 +1,3 @@
 class Link < ApplicationRecord
-	belongs_to :item
+	belongs_to :linkable, polymorphic: true
 end

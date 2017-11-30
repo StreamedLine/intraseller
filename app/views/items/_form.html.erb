@@ -2,11 +2,20 @@
 	<%= f.label :bhsku %>
 	<%= f.text_field :bhsku %>
 	<br>
+
 	<%= f.label :mfrsku %>
 	<%= f.text_field :mfrsku %>
 	<br>
+	
 	<%= f.label :image %>
 	<%= f.text_field :image %>
 	<br>
+
+	<%= f.fields_for :links do |ff| %>
+		<%= ff.label :url %>
+		<%= ff.text_field :url %>	
+	<% end %>
+	<br>
+	
 	<%= f.submit %>
 <% end %>
