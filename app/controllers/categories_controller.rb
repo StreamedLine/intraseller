@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
   	params.require(:category).permit(
       :name, 
       items_attributes: [:bhsku, :mfrsku, :image, links_attributes: [:url]],
-      tags_attributes: [:label]
+      tags_attributes: [:label, :id]
     )
   end
 end
