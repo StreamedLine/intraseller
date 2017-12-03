@@ -25,24 +25,25 @@ class Item < ApplicationRecord
 	end
 
 	def scrape_for_info(url)
-		if url.present? && (self[:bhsku].blank? || self[:mfrsku].blank?)
-			scrape_array = scrape_skus(url)
-			self[:bhsku] = scrape_array[0] if self[:bhsku].blank?
-			self[:mfrsku] = scrape_array[1] if self[:mfrsku].blank?
+		if url.present? && (self[:bhsku].blank? || self[:mfrsku].blank? || self[:image].blank?)
+			scrape_hash = scrape_page(url)
+			self[:bhsku] = scrape_hash[:bhsku] if self[:bhsku].blank?
+			self[:mfrsku] = scrape_hash[:mfrsku] if self[:mfrsku].blank?
+			self[:image] = scrape_hash[:image] if self[:image].blank?
 		end
 		self
 	end
 
 	private
 
-	def scrape_skus(url)
+	def scrape_page(url)
 		source = open(url).read
 		page = Nokogiri::HTML(source)
-		bhsku = page.at_css('.bh-mfr-numbers .c28').text
-		mfrsku = page.at_css('.mfr-number').text
-		[bhsku, mfrsku].collect do |sku|
-			sku.gsub(/[[:space:]]|B&H|MFR|#/i, '')
-		end
+		scraped = {}
+		scraped[:bhsku] = page.at_css('.bh-mfr-numbers .c28').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
+		scraped[:mfrsku] = page.at_css('.mfr-number').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
+		scraped[:image] = page.at_css('#mainImage')[:src]
+		scraped
 	end
 
 end
