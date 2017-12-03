@@ -24,4 +24,25 @@ class Item < ApplicationRecord
 		end
 	end
 
+	def scrape_for_info(url)
+		if url.present? && (self[:bhsku].blank? || self[:mfrsku].blank?)
+			scrape_array = scrape_skus(url)
+			self[:bhsku] = scrape_array[0] if self[:bhsku].blank?
+			self[:mfrsku] = scrape_array[1] if self[:mfrsku].blank?
+		end
+		self
+	end
+
+	private
+
+	def scrape_skus(url)
+		source = open(url).read
+		page = Nokogiri::HTML(source)
+		bhsku = page.at_css('.bh-mfr-numbers .c28').text
+		mfrsku = page.at_css('.mfr-number').text
+		[bhsku, mfrsku].collect do |sku|
+			sku.gsub(/[[:space:]]|B&H|MFR|#/i, '')
+		end
+	end
+
 end

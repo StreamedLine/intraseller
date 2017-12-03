@@ -46,7 +46,8 @@ class ItemsController < ApplicationController
   private
 
   def new_item_from_params
-    Item.new(item_params)
+    item = Item.new(item_params)
+    item.scrape_for_info(params[:item][:links_attributes]['0'][:url])
   end
 
   def item_params
