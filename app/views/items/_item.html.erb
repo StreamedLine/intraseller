@@ -3,8 +3,6 @@
 	<p>
 		<b>mfr#</b> <%= item.mfrsku %>
 		<br>
-		<img src="<%= item.image %>" alt="image not found/available" />
-		<br>
 		<b>updated_at:</b> <%= item.updated_at %>  || <b>created at:</b> <%= item.created_at %>
 		<br>
 		<%= link_to 'Show', item_path(item) %> |
@@ -16,8 +14,5 @@
 	resources
 	comparisons
 	issues/recalls -->
-	
-	<h3>Q&A</h3>
-	<%= render partial: 'question', collection: item.questions, as: :question %>
 
 </p>
