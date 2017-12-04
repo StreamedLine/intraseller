@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	@item = new_or_existing_item_from_params
+  	@item = new_from_params
     
   	if save_item
       flash[:notice] = "Success! #{@item.bhsku} saved"
@@ -45,9 +45,8 @@ class ItemsController < ApplicationController
 
   private
 
-  def new_or_existing_item_from_params
+  def new_from_params
     item = Item.new(item_params)
-    item.exisitng_or_new
   end
 
   def item_params
@@ -62,19 +61,3 @@ class ItemsController < ApplicationController
     @item.save
   end
 end
-
-#app/controllers/category_items_controller.rb
-
-# class CategoryItemsController < ItemsController
-#   def correct_item_path(item)
-#     category_item_path(item)
-#   end
-#
-#   def new_item_from_params
-#     category.items.build(item_params)
-#   end
-#
-#   def category
-#     Category.find(params[:category_id])
-#   end
-# end

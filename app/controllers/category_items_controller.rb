@@ -1,21 +1,25 @@
 class CategoryItemsController < ItemsController
+  def new
+    @category = category
+  end
+
   private
   
-  def new_or_existing_item_from_params
-    @current_category = category
-    @current_category.items.build(item_params)
+  def new_from_params
+    @category = category
+    @category.items.build(item_params)
   end
 
   def correct_item_path(item)
-  	if @current_category
-  		category_path(@current_category)
+  	if @category
+  		category_path(@category)
   	else
-	    category_item_path(category, item)
+	    category_item_path(@category, item)
 	  end
   end
 
   def save_item
-    @current_category.save
+    @category.save
   end
 
   def category

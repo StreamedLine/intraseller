@@ -7,6 +7,5 @@
 
 
 <h3>add item</h3>
-<%= form_for([@category, @category.build_item]) do |f| %>
-	<%= render partial: 'items/form', locals: {:f => f} %>
-<% end %>
+<%= render partial: 'items/category_item_form', locals: {:category => @category} %>
+

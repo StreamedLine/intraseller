@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :new, :create, :edit, :update]
 
   resources :categories do 
-  	resources :items, only: [:index, :show, :create, :update], :controller => "category_items"
+  	resources :items, only: [:index, :show, :new, :create, :update], :controller => "category_items"
   end
 end

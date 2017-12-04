@@ -6,14 +6,17 @@ class Item < ApplicationRecord
 	has_many :links, as: :linkable
 	has_many :tags, as: :tagable
 
-	validates :bhsku, presence: true
+	validates :bhsku, {presence: true, uniqueness: true}
 
-	#accepts_nested_attributes_for :links, reject_if: proc { |attributes| attributes['url'].blank? }
+	before_validation do |item| 
+		scrape_for_info(item, item[:url]) 
+		item
+	end
 
 	def links_attributes=(links_attributes)
 		links_attributes.each do |i, link_attributes|
 			url = link_attributes[:url]
-			self.scrape_for_info(url)
+			self.scrape_for_info(self, url)
 			self.links.build(url: url)
 		end
 	end
@@ -32,25 +35,15 @@ class Item < ApplicationRecord
 		end
 	end
 
-	def scrape_for_info(url)
-		if url.present? && (self[:bhsku].blank? || self[:mfrsku].blank? || self[:image].blank?)
+	def scrape_for_info(item, url)
+		if url.present? && (item[:bhsku].blank? || item[:mfrsku].blank? || item[:image].blank?)
 			scrape_hash = scrape_page(url)
 			if scrape_hash
-				self[:bhsku] = scrape_hash[:bhsku] if self[:bhsku].blank?
-				self[:mfrsku] = scrape_hash[:mfrsku] if self[:mfrsku].blank?
-				self[:image] = scrape_hash[:image] if self[:image].blank?
+				item[:bhsku] = scrape_hash[:bhsku] if item[:bhsku].blank?
+				item[:mfrsku] = scrape_hash[:mfrsku] if item[:mfrsku].blank?
+				item[:image] = scrape_hash[:image] if item[:image].blank?
 			end
 		end
-		self
-	end
-
-	def exisitng_or_new
-		search_bh = self.class.find_by(bhsku: self.bhsku)
-		search_mfr = self.class.find_by(mfrsku: self.mfrsku)
-		[search_bh, search_mfr].each do |search_result|
-			return search_result if search_result 
-		end
-		self
 	end
 
 	private
