@@ -1,7 +1,7 @@
 class CategoryItemsController < ItemsController
   private
   
-  def new_item_from_params
+  def new_or_existing_item_from_params
     @current_category = category
     @current_category.items.build(item_params)
   end

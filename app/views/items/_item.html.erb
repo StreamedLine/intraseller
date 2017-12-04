@@ -1,18 +1,16 @@
-<p>
-	<h2>bh# <%= item.bhsku %></h2>
+<div class='basic_item'>
+	<h2><%= link_to "bh# #{item.bhsku}", item_path(item) %></h2>
 	<p>
 		<b>mfr#</b> <%= item.mfrsku %>
 		<br>
 		<b>updated_at:</b> <%= item.updated_at %>  || <b>created at:</b> <%= item.created_at %>
 		<br>
-		<%= link_to 'Show', item_path(item) %> |
-		<%= link_to 'Edit', edit_item_path(item) %>
 	</p>
-	
+</div>
 	<!-- 
 	bullets
 	resources
 	comparisons
 	issues/recalls -->
 
-</p>
+
