@@ -71,11 +71,11 @@ ActiveRecord::Schema.define(version: 20171204162609) do
 
   create_table "tags", force: :cascade do |t|
     t.string "label"
-    t.string "tagable_type"
-    t.integer "tagable_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tagable_type", "tagable_id"], name: "index_tags_on_tagable_type_and_tagable_id"
+    t.index ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id"
   end
 
   create_table "users", force: :cascade do |t|

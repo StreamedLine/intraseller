@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 	has_many :itemQuestions
 	has_many :questions, :through => :itemQuestions
 	has_many :links, as: :linkable
-	has_many :tags, as: :tagable
+	has_many :tags, as: :taggable
 
 	validates :bhsku, {presence: true, uniqueness: true}
 

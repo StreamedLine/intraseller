@@ -1,4 +1,6 @@
 doing tags
+	allow adding tags to item and categories and displaying them
+	allow adding from existing tags
 
 todo
 deal with tags and votes
@@ -12,3 +14,5 @@ create a bullets table
 
 add search
 make time/dates look nicer
+
+make views look nice

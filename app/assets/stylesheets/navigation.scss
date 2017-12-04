@@ -1,0 +1,23 @@
+header {
+	position: static;
+	display: block;
+	background: #eee;
+}
+
+header nav {
+	display: inline;
+}
+
+header nav a {
+	text-decoration: none;
+	font-size: 1.25em;
+	border: 1px dotted grey;
+	background: white;
+	padding: 5px; 
+}
+
+header span {
+	position: absolute;
+
+	right: 10px;
+}

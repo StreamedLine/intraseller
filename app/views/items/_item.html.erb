@@ -7,6 +7,8 @@
 		<br>
 		<%= link_to 'edit item', edit_item_path(item) %>
 	</p>
+
+	<%= render partial: 'tags/tags', locals: {:taggable_item => item} %>
 </div>
 	<!-- 
 	bullets
