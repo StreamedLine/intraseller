@@ -13,6 +13,8 @@ class Item < ApplicationRecord
 		item
 	end
 
+	accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['content'].blank? }
+
 	def links_attributes=(links_attributes)
 		links_attributes.each do |i, link_attributes|
 			url = link_attributes[:url]

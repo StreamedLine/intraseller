@@ -1,7 +1,5 @@
-<h2>Q&A</h2>
-
 <div class="question_and_answers">
-	<h3>Q: <%= question.content %></h3>
+	<h4>Q: <%= question.content %></h4>
 
 	<% if question.answers.count > 0 %>
 		<%= render partial: 'answer', collection: question.answers, as: :answer %>

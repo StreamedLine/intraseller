@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :categories do 
   	resources :items, only: [:index, :show, :new, :create, :update], :controller => "category_items"
   end
+
+  resources :items do 
+  	resources :questions, only: [:create], :controller => "item_questions"
+  end
 end
