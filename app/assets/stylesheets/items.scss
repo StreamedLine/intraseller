@@ -6,5 +6,29 @@
 	margin: 5px;
 	padding: 5px;
 	border-bottom: 1px dotted grey;
+	display:block;
 }
 
+.extended_item {
+	display: inline-block;
+}
+
+.extended_item .inline_section{
+		display: inline-block;
+		vertical-align: top;
+}	
+
+.full_item {
+	border: 3px solid grey;
+	display: inline-block
+}
+
+.full_item h1,
+.full_item h2,
+.full_item h3 {
+	text-align: center;
+}
+
+.full_item .info_span {
+	display: block
+}
