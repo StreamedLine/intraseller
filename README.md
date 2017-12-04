@@ -1,8 +1,3 @@
-Next steps:
-
-improve view in index to not include Q&A. perhaps put Q&A in separate partials.
-
-do not allow duplicate items if: bhsku, mfrsku or link is the same.
 
 
 # README

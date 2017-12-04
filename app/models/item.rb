@@ -8,7 +8,15 @@ class Item < ApplicationRecord
 
 	validates :bhsku, presence: true
 
-	accepts_nested_attributes_for :links, reject_if: proc { |attributes| attributes['url'].blank? }
+	#accepts_nested_attributes_for :links, reject_if: proc { |attributes| attributes['url'].blank? }
+
+	def links_attributes=(links_attributes)
+		links_attributes.each do |i, link_attributes|
+			url = link_attributes[:url]
+			self.scrape_for_info(url)
+			self.links.build(url: url)
+		end
+	end
 
 	def tags_attributes=(tags_attributes)
 		tags_attributes.each do |i, tag_attributes|
@@ -27,9 +35,20 @@ class Item < ApplicationRecord
 	def scrape_for_info(url)
 		if url.present? && (self[:bhsku].blank? || self[:mfrsku].blank? || self[:image].blank?)
 			scrape_hash = scrape_page(url)
-			self[:bhsku] = scrape_hash[:bhsku] if self[:bhsku].blank?
-			self[:mfrsku] = scrape_hash[:mfrsku] if self[:mfrsku].blank?
-			self[:image] = scrape_hash[:image] if self[:image].blank?
+			if scrape_hash
+				self[:bhsku] = scrape_hash[:bhsku] if self[:bhsku].blank?
+				self[:mfrsku] = scrape_hash[:mfrsku] if self[:mfrsku].blank?
+				self[:image] = scrape_hash[:image] if self[:image].blank?
+			end
+		end
+		self
+	end
+
+	def exisitng_or_new
+		search_bh = self.class.find_by(bhsku: self.bhsku)
+		search_mfr = self.class.find_by(mfrsku: self.mfrsku)
+		[search_bh, search_mfr].each do |search_result|
+			return search_result if search_result 
 		end
 		self
 	end
@@ -37,7 +56,11 @@ class Item < ApplicationRecord
 	private
 
 	def scrape_page(url)
-		source = open(url).read
+		begin
+			source = open(url).read
+		rescue
+			return false
+		end
 		page = Nokogiri::HTML(source)
 		scraped = {}
 		scraped[:bhsku] = page.at_css('.bh-mfr-numbers .c28').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
@@ -45,5 +68,6 @@ class Item < ApplicationRecord
 		scraped[:image] = page.at_css('#mainImage')[:src]
 		scraped
 	end
+
 
 end

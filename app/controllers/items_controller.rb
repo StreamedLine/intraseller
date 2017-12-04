@@ -14,8 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	@item = new_item_from_params
-
+  	@item = new_or_existing_item_from_params
+    
   	if save_item
       flash[:notice] = "Success! #{@item.bhsku} saved"
   		redirect_to correct_item_path(@item)
@@ -45,9 +45,9 @@ class ItemsController < ApplicationController
 
   private
 
-  def new_item_from_params
+  def new_or_existing_item_from_params
     item = Item.new(item_params)
-    item.scrape_for_info(params[:item][:links_attributes]['0'][:url])
+    item.exisitng_or_new
   end
 
   def item_params
