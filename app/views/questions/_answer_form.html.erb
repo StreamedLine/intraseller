@@ -1,0 +1,8 @@
+<%= form_for([item, question]) do |f| %>
+		<%= fields_for :answer do |ff| %>
+			<%= ff.label :content, 'answer' %>
+			<%= ff.text_field :content %>
+		<% end %>
+
+  	<%= f.submit 'submit' %>
+<% end %>

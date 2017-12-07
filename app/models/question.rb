@@ -6,4 +6,8 @@ class Question < ApplicationRecord
 	has_many :answers
 	
 	validates :content, presence: true
+
+	def answer_for_view
+		self.answers.build
+	end
 end

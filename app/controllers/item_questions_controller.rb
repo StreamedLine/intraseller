@@ -16,7 +16,7 @@ class ItemQuestionsController < ItemsController
   	else
       flash[:error] = "#{@item.errors.full_messages.first}"
   	end
-  	redirect_to correct_item_path(@item)
+  	redirect_to correct_item_path(item)
 	end
 
 	private
