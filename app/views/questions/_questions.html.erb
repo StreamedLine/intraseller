@@ -1,5 +1,7 @@
-<div class="question_and_answers">
-	<b>Q: <%= question.content %></b>
+<div class="questions_and_answers">
+	<div class="question_and_answers">
+		<span class="question_title">Q: <%= question.content %></span>
+		
 		<% if question.answers.count > 0 %>
 			<details>
 				<summary><%=  "#{question.answers.count} answers available" %></summary>
@@ -8,5 +10,8 @@
 		<% else %>
 			 <div class="low_profile">not yet answered</div>
 		<% end %>
+		
 		<%= render partial: 'questions/answer_form', locals: {:item => item, :question => question, :answer => question.answers.build} %>
+
+	</div>
 </div>
