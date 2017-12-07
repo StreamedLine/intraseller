@@ -5,7 +5,7 @@
 	
 	<div class="inline_section">
 		<h3>Q&A</h3>
-		<%= render partial: 'questions', collection: item.questions, as: :question %>
+		<%= render partial: 'questions/questions', collection: item.questions, as: :question %>
 
 		<h4>Add question here</h4>
 		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
