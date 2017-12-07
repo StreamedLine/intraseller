@@ -3,14 +3,14 @@ Rails.application.routes.draw do
 
   root "welcome#home"
 
-  resources :categories, only: [:index, :show, :new, :create, :edit, :update]
-  resources :items, only: [:index, :show, :new, :create, :edit, :update]
+  # resources :categories
+  # resources :items
 
-  resources :categories do 
+  resources :categories, only: [:index, :show, :new, :create, :edit, :update] do 
   	resources :items, only: [:index, :show, :new, :create, :update], :controller => "category_items"
   end
 
-  resources :items do 
+  resources :items, only: [:index, :show, :new, :create, :edit, :update] do 
   	resources :questions, only: [:create], :controller => "item_questions"
   end
 end

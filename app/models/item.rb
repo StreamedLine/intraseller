@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
 	before_validation do |item| 
 		scrape_for_info(item, item[:url]) 
-		item
+		true
 	end
 
 	accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['content'].blank? }

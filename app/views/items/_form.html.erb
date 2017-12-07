@@ -1,27 +1,32 @@
-<%= f.label :bhsku %>
-<%= f.text_field :bhsku %>
-<br>
+<div class="form">
+	<h3>Enter link, to automatically find, BH# MFR# and image</h3>
+	<%= f.fields_for :links do |ff| %>
+		<%= ff.label :url, 'Link' %>
+		<%= ff.text_field :url %>	
+	<% end %>
+	<br><br>
 
-<%= f.label :mfrsku %>
-<%= f.text_field :mfrsku %>
-<br>
+	<hr>
+	<h4>optional</h4>
+	<%= f.label :bhsku %>
+	<%= f.text_field :bhsku %>
+	<br>
 
-<%= f.label :image %>
-<%= f.text_field :image %>
-<br>
+	<%= f.label :mfrsku %>
+	<%= f.text_field :mfrsku %>
+	<br>
 
-<%= f.fields_for :links do |ff| %>
-	<%= ff.label :url %>
-	<%= ff.text_field :url %>	
-<% end %>
-<br>
+	<%= f.label :image %>
+	<%= f.text_field :image %>
+	<br>
 
-<h3>Item tags (optional)</h3>
-<%= f.fields_for :tags do |ff| %>
-	<%= ff.label :label, 'tag' %>
-	<%= ff.text_field :label %>
-<% end %>
-<br>
+	<h3>Item tags, will show up in search results</h3>
+	<%= f.fields_for :tags do |ff| %>
+		<%= ff.label :label, 'tag' %>
+		<%= ff.text_field :label %>
+	<% end %>
+	<hr>
+	<br>
 
-<br>
-<%= f.submit %>
+	<%= f.submit %>
+</div>

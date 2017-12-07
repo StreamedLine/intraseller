@@ -1,5 +1,4 @@
 doing tags
-	allow adding tags to item and categories and displaying them
 	allow adding from existing tags
 
 todo
