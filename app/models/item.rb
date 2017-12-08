@@ -1,8 +1,13 @@
 class Item < ApplicationRecord
+	#COMPARISONS, has_many of itself
+	has_many :comparisons
+  has_many :compared, :through => :comparisons
+	#CATEGORIES AND QUESTIONS
 	has_many :categoryItems
 	has_many :categories, :through => :categoryItems
 	has_many :itemQuestions
 	has_many :questions, :through => :itemQuestions
+	#POLYMORPHIC ASSOCIATIONS
 	has_many :links, as: :linkable
 	has_many :tags, as: :taggable
 
