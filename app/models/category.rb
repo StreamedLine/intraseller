@@ -27,4 +27,12 @@ class Category < ApplicationRecord
 		item.tags.build
 		item
 	end
+
+	def find_or_build_item_from_params(item_params)
+		item = Item.find_or_build_item_with_params(item_params)
+		if item[:id].blank? 
+			self.items << item
+		end
+		item
+	end
 end

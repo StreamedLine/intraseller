@@ -11,12 +11,7 @@ class Item < ApplicationRecord
 	has_many :links, as: :linkable
 	has_many :tags, as: :taggable
 
-	validates :bhsku, {presence: true, uniqueness: true}
-
-	before_validation do |item| 
-		scrape_for_info(item, item[:url]) 
-		true
-	end
+	validates :bhsku, {uniqueness: true}
 
 	accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['content'].blank? }
 
@@ -39,6 +34,19 @@ class Item < ApplicationRecord
 				tag.update(label: tag_attributes[:label])
 				self.tags << tag
 			end
+		end
+	end
+
+	def self.find_or_build_item_with_params(item_params)
+		item = self.new(item_params)
+		item.scrape_for_info(item, item_params[:links_attributes]['0'][:url]) 
+		search_result = self.find_by(bhsku: item[:bhsku], mfrsku: item[:mfrsku])
+		if search_result
+			search_result.update(item_params)
+			search_result
+		else
+			item.save
+			item
 		end
 	end
 

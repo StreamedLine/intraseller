@@ -7,7 +7,7 @@ class CategoryItemsController < ItemsController
   
   def new_from_params
     @category = category
-    @category.items.build(item_params)
+    @category.find_or_build_item_from_params(item_params)
   end
 
   def correct_item_path(item)

@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
   private
 
   def new_from_params
-    item = Item.new(item_params)
+    item = Item.find_or_build_item_with_params(item_params)
   end
 
   def item_params
