@@ -1,10 +1,11 @@
-<h1>Categories#show</h1>
+<h1>Categories</h1>
 
 <%= render partial: 'category', locals: {:category => @category} %>
 
 <h2>Items</h2>
-<%= render partial: 'items/item', collection: @category.items, as: :item %>
-
+<div class="basic_only">
+	<%= render partial: 'items/item', collection: @category.items, as: :item %>
+</div>
 
 <h3>add item</h3>
 <%= render partial: 'items/category_item_form', locals: {:category => @category} %>

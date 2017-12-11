@@ -1,5 +1,5 @@
 <div class='basic_item'>
-	<h2><%= link_to "bh# #{item.bhsku}", item_path(item) %></h2>
+	<h3><%= link_to "bh# #{item.bhsku}", item_path(item) %></h3>
 	<p>
 		<span class="info_span"><b>mfr#</b> <%= item.mfrsku %></span>  
 		<span class="info_span"><b>updated_at:</b> <%= item.updated_at %></span>  
@@ -9,10 +9,6 @@
 
 	<%= render partial: 'tags/tags', locals: {:taggable_item => item} %>
 </div>
-	<!-- 
-	bullets
-	resources
-	comparisons
-	issues/recalls -->
+
 
 

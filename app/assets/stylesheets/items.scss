@@ -9,6 +9,19 @@
 	display:block;
 }
 
+.basic_only .basic_item {
+	background: #eee;
+	width: 35%;
+	padding: 10px;
+}
+.basic_only .info_span {
+	display: block;
+}
+
+.basic_only .basic_item a {
+	font-size: 1.25em;
+}
+
 .extended_item {
 	display: inline-block;
 }

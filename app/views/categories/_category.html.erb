@@ -1,9 +1,10 @@
-<p>
-	<h4><%= link_to "#{category.name}", category_path(category) %></h4>
+<div class="basic_item">
+	<h3><%= link_to "#{category.name}", category_path(category) %></h3>
   <p>
-  	updated_at: <%= category.updated_at %>  |  created at: <%= category.created_at %>
-  	<br>
-		<%= link_to 'add item', new_category_item_path(category) %> | <%= link_to 'edit category', edit_category_path(category) %>
+  	<span class="info_span"><b>updated_at:</b> <%= category.updated_at %></span>  
+		<span class="info_span"><b>created at:</b> <%= category.created_at %></span>
+		<%= link_to 'add item', new_category_item_path(category), class: 'steelblue_text' %> |
+		<%= link_to 'edit category', edit_category_path(category), class: 'grey_text' %>
 	</p>
 	<%= render partial: 'tags/tags', locals: {:taggable_item => category} %>
-</p>
+</div>
