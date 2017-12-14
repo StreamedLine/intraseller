@@ -1,5 +1,5 @@
 <div class="basic_item">
-	<%= render partial: 'items/item', locals: {:item => categorized_item.item} %>
+	<%= render partial: 'items/item', locals: {:item => categorized_item.item, :category => categorized_item.category} %>
 
 	<%= form_for categorized_item do |f| %>
 		<%= f.label :note, class: 'aligntop' %>
