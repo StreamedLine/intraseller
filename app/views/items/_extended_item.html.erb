@@ -10,6 +10,14 @@
 		<h4 class="green_text">Add question here</h4>
 		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
 	</div>
+
+	<div class="inline_section comparisons">
+		<h3>Comparisons</h3>
+
+		<% item.comparisons.each do |comparison| %>
+			<p><%= comparison.compared.bhsku %></p>
+		<% end %>
+	</div>
 </div>
 
 	<!-- 

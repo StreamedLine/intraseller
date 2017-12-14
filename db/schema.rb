@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212041446) do
+ActiveRecord::Schema.define(version: 20171214211923) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bullets", force: :cascade do |t|
+    t.string "nugget"
+    t.string "bulletable_type"
+    t.integer "bulletable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bulletable_type", "bulletable_id"], name: "index_bullets_on_bulletable_type_and_bulletable_id"
   end
 
   create_table "categories", force: :cascade do |t|

@@ -1,8 +1,9 @@
 <h1>Items</h1>
 
-
 <div class="full_item">
+	<!-- BASIC INFO -->
 	<%= render partial: 'item', locals: {:item => @item} %>
 
+	<!-- INCLUDES Q&A AND COMPARISONS -->
 	<%= render partial: 'extended_item', locals: {:item => @item} %>
 </div>
