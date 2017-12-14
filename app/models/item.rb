@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 	#POLYMORPHIC ASSOCIATIONS
 	has_many :links, as: :linkable
 	has_many :tags, as: :taggable
+	has_many :bullets, as: :bulletable
 
 	validates :bhsku, {uniqueness: true}
 
