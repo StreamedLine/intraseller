@@ -4,7 +4,7 @@
 
 <h2>Items</h2>
 <div class="basic_only">
-	<%= render partial: 'items/item', collection: @category.items, as: :item %>
+	<%= render partial: 'items/categorized_item', collection: @category.categoryItems, as: :categorized_item %>
 </div>
 
 <h3>add item</h3>
