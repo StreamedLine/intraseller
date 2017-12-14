@@ -30,7 +30,7 @@ class Category < ApplicationRecord
 
 	def find_or_build_item_from_params(item_params)
 		item = Item.find_or_build_item_with_params(item_params)
-		if item[:id].blank? 
+		if !self.items.include?(item.id) 
 			self.items << item
 		end
 		item

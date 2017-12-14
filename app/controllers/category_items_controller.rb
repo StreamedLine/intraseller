@@ -3,10 +3,11 @@ class CategoryItemsController < ItemsController
     @category = category
   end
 
+  #used for join table
   def update
     if params[:category_item].present?
-      @category = category
-      @category_item = CategoryItem.find(params[:id])
+      @category = Category.find(params[:id])
+      @category_item = CategoryItem.find(params[:category_id]) #category_id is actually category_item_id
       @category_item.update(category_items_params)
       redirect_to category_path(@category)
     else
@@ -16,6 +17,7 @@ class CategoryItemsController < ItemsController
 
   private
   
+  #used for join table
   def category_items_params
     params.require(:category_item).permit(:note)
   end
