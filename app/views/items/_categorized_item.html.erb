@@ -1,2 +1,10 @@
+<div class="basic_item">
 <%= render partial: 'items/item', locals: {:item => categorized_item.item} %>
-<p>Note: <%= categorized_item.note %></p>
+
+<%= form_for categorized_item do |f| %>
+	<%= f.label :note, class: 'aligntop' %>
+	<%= f.text_area :note, placeholder: 'items relationship to this category', class: 'camouflage' %>
+
+	<%= f.submit 'update note' %>
+<% end %>
+</div>
