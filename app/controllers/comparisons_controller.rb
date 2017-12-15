@@ -1,11 +1,16 @@
 class ComparisonsController < ApplicationController
 	def index 
-		@comparisons = item.comparisons.all
+		@comparisons = target.all
 	end
 
 	def show
-		@comparison = item.comparison.find(params[:id])
+		@comparison = target
 	end
+
+	def new
+		@item = item
+		@to_compared = Comparison.to_compare(@item)
+	end 
 
 	def create
 		@comparison = Comparison.new(comparison_params)
@@ -27,7 +32,7 @@ class ComparisonsController < ApplicationController
   		redirect_to comparison_path(@comparison)
   	else
       flash[:error] = "#{@comparison.errors.full_messages.first}"
-  		redirect_to item_path(item)
+  		redirect_to item_path(target)
   	end
 	end
 
@@ -37,7 +42,11 @@ class ComparisonsController < ApplicationController
 		params.require(:comparison).permit(:item_id, :compared_id, :bullets_attributes => [:nugget])
 	end
 
-	def item
-		item = params[:item_id]
+	def target
+		if params[:item_id]
+			Item.find(params[:item_id]).comparisons.find(params[:id]) 
+		else
+			Comparison.find(params[:id])
+		end
 	end
 end

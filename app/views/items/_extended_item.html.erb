@@ -8,7 +8,7 @@
 			<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
 		
 			<h4 class="brown_text">Add nugget here</h4>
-			<%= render partial: 'bullets/form', locals: {:item => item} %>
+			<%= render partial: 'bullets/form', locals: {:target => item} %>
 
 		<hr><hr>
 		<h3 class="green_text">Q&A</h3>
@@ -21,8 +21,10 @@
 	<div class="inline_section comparisons">
 		<h3>Comparisons</h3>
 
+		<h5><%= link_to 'Compare New Item', new_item_comparison_path(item) %></h5>
+
 		<% item.comparisons.each do |comparison| %>
-			<p><%= comparison.compared.bhsku %></p>
+			<p><%= link_to comparison.compared.bhsku, item_comparison_path(item, comparison) %></p>
 		<% end %>
 	</div>
 </div>

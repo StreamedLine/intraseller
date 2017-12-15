@@ -9,4 +9,8 @@ class Comparison < ApplicationRecord
 	end
 
 	accepts_nested_attributes_for :bullets
+
+	def to_compare(item)
+		#return all items that have not yet been compared
+	end
 end

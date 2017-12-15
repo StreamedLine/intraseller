@@ -1,1 +1,15 @@
-<%= @comparison %>
+<h1>Comparison Details</h1>
+
+
+<%= @comparison.item.bhsku %>
+<img src="<%= @comparison.item.image %>" class="small_image alignmiddle"> 
+<--> 
+<img src="<%= @comparison.compared.image %>" class="small_image alignmiddle">
+<%= @comparison.compared.bhsku %>
+
+<h4 class="brown_text">Add nugget here</h4>
+<%= render partial: 'bullets/form', locals: {:target => @comparison} %>
+
+<% @comparison.bullets.each do |bullet| %>
+	<%= render partial: 'bullets/bullet', locals: {:bullet => bullet} %>
+<% end %>

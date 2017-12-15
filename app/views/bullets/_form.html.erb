@@ -1,5 +1,5 @@
-<%= form_for(item) do |f| %>
-	<%= f.fields_for :bullets, item.bullets.build do |ff| %>
+<%= form_for(target) do |f| %>
+	<%= f.fields_for :bullets, target.bullets.build do |ff| %>
 		<%= ff.label :nugget %>
 		<%= ff.text_field :nugget %>
 	<% end %>

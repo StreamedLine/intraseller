@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   	resources :comparisons, only: [:index, :show, :new, :create]
   end
 
+  resources :comparisons, only: [:show, :update]
 end
