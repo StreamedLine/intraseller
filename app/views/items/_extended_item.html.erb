@@ -4,11 +4,18 @@
 	</div>
 	
 	<div class="inline_section">
-		<h3>Q&A</h3>
-		<%= render partial: 'questions/questions', collection: item.questions, as: :question, locals: {:item => item} %>
+		<h3 class="brown_text">Quick Info</h3>
+			<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
+		
+			<h4 class="brown_text">Add nugget here</h4>
+			<%= render partial: 'bullets/form', locals: {:item => item} %>
 
-		<h4 class="green_text">Add question here</h4>
-		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
+		<hr><hr>
+		<h3 class="green_text">Q&A</h3>
+			<%= render partial: 'questions/questions', collection: item.questions, as: :question, locals: {:item => item} %>
+
+			<h4 class="green_text">Add question here</h4>
+			<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
 	</div>
 
 	<div class="inline_section comparisons">

@@ -1,23 +1,19 @@
 <div class="form">
 	<h3>Enter link, to automatically find, BH# MFR# and image</h3>
 	<%= f.fields_for :links do |ff| %>
-		<%= ff.label :url, 'Link' %>
+		<%= ff.label :url, '🌎 Link' %>
 		<%= ff.text_field :url %>	
 	<% end %>
-	<br><br>
+	<br>
 
 	<hr>
 	<h4>optional</h4>
-	<%= f.label :bhsku %>
+	<%= f.label :bhsku, 'B&H-SKU#' %>
 	<%= f.text_field :bhsku %>
 	<br>
 
-	<%= f.label :mfrsku %>
+	<%= f.label :mfrsku, 'MFR-SKU' %>
 	<%= f.text_field :mfrsku %>
-	<br>
-
-	<%= f.label :image %>
-	<%= f.text_field :image %>
 	<br>
 
 	<h3>Item tags, will show up in search results</h3>

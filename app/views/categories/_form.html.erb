@@ -1,17 +1,15 @@
-<div class="form">
-	<%= form_for(category) do |f| %>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-		<br>
-		
-		<h3>add tag (optional)</h3>
-		<%= f.fields_for :tags do |ff| %>
-			<%= ff.label :label, 'Tag' %>
-			<%= ff.text_field :label %>
-		<% end %>
-
-		<br>
-		<br>
-		<%= f.submit %>
+<%= form_for(category) do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	
+	<h3>add tag (optional)</h3>
+	<%= f.fields_for :tags do |ff| %>
+		<%= ff.label :label, 'Tag' %>
+		<%= ff.text_field :label %>
 	<% end %>
-</div>
+
+	<br>
+	<br>
+	<%= f.submit %>
+<% end %>

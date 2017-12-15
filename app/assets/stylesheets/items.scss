@@ -6,7 +6,7 @@
 	margin: 5px;
 	padding: 5px;
 	border-bottom: 1px dotted grey;
-	display:block;
+	display: block;
 }
 
 .basic_only .basic_item {
@@ -22,11 +22,7 @@
 	font-size: 1.25em;
 }
 
-.extended_item {
-	display: inline-block;
-}
-
-.extended_item .inline_section{
+.inline_section {
 	display: inline-block;
 	vertical-align: top;
 	margin: 10px;
@@ -46,4 +42,10 @@
 
 .full_item .info_span {
 	display: block
+}
+
+.nugget::before {
+	content: "\2192";
+	margin-right: 1em;
+	color: brown;
 }

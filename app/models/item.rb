@@ -15,6 +15,7 @@ class Item < ApplicationRecord
 	validates :bhsku, {uniqueness: true}
 
 	accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['content'].blank? }
+	accepts_nested_attributes_for :bullets, reject_if: proc { |attributes| attributes['nugget'].blank? }
 
 	def links_attributes=(links_attributes)
 		links_attributes.each do |i, link_attributes|

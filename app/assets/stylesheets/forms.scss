@@ -3,7 +3,10 @@
 }
 
 .form {
-	display: inline-block
+	display: inline-block;
+    background: #e3d3e3;
+    padding: 10px;
+    border: 4px solid #939393
 }
 
 .form input[type=text] {
@@ -19,10 +22,14 @@
     width: 100%;
     background: darkgrey;
     color: white;
-    cursor:pointer
+    cursor: pointer;
+}
+
+.form input[type="submit"]:active {
+    color: green
 }
 
 .camouflage {
     background: inherit;
-    border:none;
+    border: none;
 }
