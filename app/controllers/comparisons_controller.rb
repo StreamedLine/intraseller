@@ -8,8 +8,8 @@ class ComparisonsController < ApplicationController
 	end
 
 	def new
-		@item = item
-		@to_compared = Comparison.to_compare(@item)
+		@item = Item.find(params[:item_id])
+		@available_items = Comparison.available_items_for(@item)
 	end 
 
 	def create
@@ -44,7 +44,7 @@ class ComparisonsController < ApplicationController
 
 	def target
 		if params[:item_id]
-			Item.find(params[:item_id]).comparisons.find(params[:id]) 
+			params[:id] ? Item.find(params[:item_id]).comparisons.find(params[:id]) : Item.find(params[:item_id]).comparisons
 		else
 			Comparison.find(params[:id])
 		end

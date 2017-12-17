@@ -1,0 +1,10 @@
+<h1>Available Items</h1>
+<h2>Please Select/Search Item</h2>
+
+<h3>Available Items for <%= @item.bhsku %></h3>
+
+Search: <input type="text" placeholder="PROTOTYPE. DOESN'T WORK">
+
+<% @available_items.each do |item| %>
+		<p><%= item.bhsku %></p>
+<% end %>

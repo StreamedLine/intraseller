@@ -10,7 +10,7 @@ class Comparison < ApplicationRecord
 
 	accepts_nested_attributes_for :bullets
 
-	def to_compare(item)
-		#return all items that have not yet been compared
+	def self.available_items_for(item)
+		Item.all - item.comparisons.map(&:compared) - [item]
 	end
 end
