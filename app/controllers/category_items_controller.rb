@@ -3,6 +3,17 @@ class CategoryItemsController < ItemsController
     @category = category
   end
 
+  def create
+    new_from_params
+    if save_item
+      flash[:notice] = "Success! #{@item.bhsku} saved"
+      redirect_to correct_item_path(@item)
+    else
+      flash[:error] = "#{@item.errors.full_messages.first}"
+      render :new
+    end
+  end
+
   #used for join table
   def update
     if params[:category_item].present?
@@ -25,7 +36,7 @@ class CategoryItemsController < ItemsController
   #All of the below methods for when item is created within context of category
   def new_from_params
     @category = category
-    @category.find_or_build_item_from_params(item_params)
+    @item = @category.find_or_build_item_from_params(item_params)
   end
 
   def correct_item_path(item)
@@ -37,7 +48,7 @@ class CategoryItemsController < ItemsController
   end
 
   def save_item
-    @category.save
+    @category.save if @item.save
   end
 
   def category

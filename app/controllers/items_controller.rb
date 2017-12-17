@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
 
   def create
   	@item = new_from_params
-  	if save_item
+  	if @item.save
       flash[:notice] = "Success! #{@item.bhsku} saved"
   		redirect_to correct_item_path(@item)
   	else
@@ -54,9 +54,5 @@ class ItemsController < ApplicationController
 
   def correct_item_path(item)
     item_path(item)
-  end
-
-  def save_item
-    @item.save
   end
 end

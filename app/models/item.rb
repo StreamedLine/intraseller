@@ -12,7 +12,7 @@ class Item < ApplicationRecord
 	has_many :tags, as: :taggable
 	has_many :bullets, as: :bulletable
 
-	validates :bhsku, {uniqueness: true}
+	validates :bhsku, {uniqueness: true, presence: true, allow_blank: false}
 
 	accepts_nested_attributes_for :questions, reject_if: proc { |attributes| attributes['content'].blank? }
 	accepts_nested_attributes_for :bullets, reject_if: proc { |attributes| attributes['nugget'].blank? }
@@ -47,7 +47,7 @@ class Item < ApplicationRecord
 			search_result.update(item_params)
 			search_result
 		else
-			item.save
+			# item.save
 			item
 		end
 	end

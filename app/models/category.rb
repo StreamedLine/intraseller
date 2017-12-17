@@ -31,7 +31,8 @@ class Category < ApplicationRecord
 	def find_or_build_item_from_params(item_params)
 		item = Item.find_or_build_item_with_params(item_params)
 		if !self.items.include?(item.id) 
-			self.items << item
+			return item if !item.save
+			self.items << item 
 		end
 		item
 	end
