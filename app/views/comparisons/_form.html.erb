@@ -1,8 +1,6 @@
-<%= form_for(@comparison) do |f| %>
-	<%= f.fields_for :bullets do |ff| %>
-		<%= f.label :nugget %>
-		<%= f.text_field :nugget %>
-	<% end %>
+<%= form_for [item, comparison] do |f| %>
+	<%= f.hidden_field :item_id, value: item.id %>
+	<%= f.hidden_field :compared_id, value: compared.id %>
 
-	<%= f.submit %>
+	<%= f.submit 'compare', class: 'check_icon' %>
 <% end %>

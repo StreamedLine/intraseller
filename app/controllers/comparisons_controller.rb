@@ -9,6 +9,7 @@ class ComparisonsController < ApplicationController
 
 	def new
 		@item = Item.find(params[:item_id])
+		@comparison = @item.comparisons.new
 		@available_items = Comparison.available_items_for(@item)
 	end 
 

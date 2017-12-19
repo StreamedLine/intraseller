@@ -4,9 +4,8 @@ implement Comparison.available_items
 
 probably should delete comparisons/index
 
-bullets
-	bullets are votable
 votes
+	bullets are votable
 	answers are votable
 
 add notes to category show pages

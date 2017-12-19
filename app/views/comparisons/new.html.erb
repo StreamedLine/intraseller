@@ -7,4 +7,5 @@ Search: <input type="text" placeholder="PROTOTYPE. DOESN'T WORK">
 
 <% @available_items.each do |item| %>
 		<p><%= item.bhsku %></p>
+		<%= render partial: 'form', locals: {:item => @item, :compared => item, :comparison => @comparison} %>
 <% end %>
