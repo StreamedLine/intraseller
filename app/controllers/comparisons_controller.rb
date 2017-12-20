@@ -1,8 +1,4 @@
 class ComparisonsController < ApplicationController
-	def index 
-		@comparisons = target.all
-	end
-
 	def show
 		@comparison = target
 	end

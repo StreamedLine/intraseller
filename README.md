@@ -1,8 +1,4 @@
 todo
-Comparison.rb model
-implement Comparison.available_items
-
-probably should delete comparisons/index
 
 votes
 	bullets are votable
@@ -14,7 +10,5 @@ allow user to add note
 add search
 make time/dates look nicer
 
-tag.rb
-	validates :label, {presence: true} 
 
 make views look nice
