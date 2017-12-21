@@ -41,7 +41,9 @@ class ComparisonsController < ApplicationController
 
 	def target
 		if params[:item_id]
-			params[:id] ? Item.find(params[:item_id]).comparisons.find(params[:id]) : Item.find(params[:item_id]).comparisons
+			#is the comparison_id
+			#binding.pry
+			Item.find(params[:item_id]).comparisons.find(params[:id]) if params[:id]
 		else
 			Comparison.find(params[:id])
 		end
