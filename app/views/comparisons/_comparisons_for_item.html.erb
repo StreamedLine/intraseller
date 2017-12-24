@@ -1,0 +1,7 @@
+<h3>Comparisons</h3>
+
+<h5><%= link_to 'Compare New Item', new_item_comparison_path(item) %></h5>
+
+<% item.comparisons.each do |comparison| %>
+	<p><%= link_to comparison.compared.bhsku, item_comparison_path(item, comparison) %></p>
+<% end %>

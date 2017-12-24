@@ -1,36 +1,29 @@
 <div class="extended_item">
+	<!-- SECTION 1  IMAGE-->
 	<div class="inline_section">
 		<img src="<%= item.image %>" alt="image not found/available" />
 	</div>
 	
+	<!-- SECTION 2  BULLETS-->
 	<div class="inline_section">
 		<h3 class="brown_text">Quick Info</h3>
-			<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
+		<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
 		
-			<h4 class="brown_text">Add nugget here</h4>
-			<%= render partial: 'bullets/form', locals: {:target => item} %>
+		<h4 class="brown_text">Add nugget here</h4>
+		<%= render partial: 'bullets/form', locals: {:target => item} %>
 
-		<hr><hr>
+		<hr>
+		<hr>
+
 		<h3 class="green_text">Q&A</h3>
-			<%= render partial: 'questions/questions', collection: item.questions, as: :question, locals: {:item => item} %>
+		<%= render partial: 'questions/questions', collection: item.questions, as: :question, locals: {:item => item} %>
 
-			<h4 class="green_text">Add question here</h4>
-			<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
+		<h4 class="green_text">Add question here</h4>
+		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
 	</div>
-
+	
+	<!-- SECTION 3  COMPARISONS-->
 	<div class="inline_section comparisons">
-		<h3>Comparisons</h3>
-
-		<h5><%= link_to 'Compare New Item', new_item_comparison_path(item) %></h5>
-
-		<% item.comparisons.each do |comparison| %>
-			<p><%= link_to comparison.compared.bhsku, item_comparison_path(item, comparison) %></p>
-		<% end %>
+		<%= render partial: 'comparisons/comparisons_for_item', locals: {:item => item} %>
 	</div>
 </div>
-
-	<!-- 
-	bullets
-	resources
-	comparisons
-	issues/recalls -->

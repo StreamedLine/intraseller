@@ -3,7 +3,7 @@
 <%= render partial: 'category', locals: {:category => @category} %>
 
 <h2>Add Item To <%= @category.name %> Category</h2>
-<%= render partial: 'items/category_item_form', locals: {:category => @category} %>
+<%= render partial: 'categories/category_item_form', locals: {:category => @category} %>
 
 <h2>Items</h2>
 <div class="basic_only">
