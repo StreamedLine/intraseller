@@ -14,6 +14,14 @@
 	width: 35%;
 	padding: 10px;
 }
+
+// UGLY FIX - UNDOING BASIC_ITEM STYLE WHEN ONE IS IN THE OTHER
+.basic_item .basic_item {
+	display: inline;
+	border: none;
+}
+// END UGLY FIX
+
 .basic_only .info_span {
 	display: block;
 }

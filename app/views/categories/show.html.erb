@@ -1,12 +1,14 @@
-<h1><%= @category.name %> Category Page</h1>
+<h1>Display Category</h1>
+<h2><%= @category.name %></h2>
 
 <%= render partial: 'category', locals: {:category => @category} %>
-
-<h2>Add Item To <%= @category.name %> Category</h2>
-<%= render partial: 'categories/category_item_form', locals: {:category => @category} %>
 
 <h2>Items</h2>
 <div class="basic_only">
 	<%= render partial: 'items/categorized_item', collection: @category.categoryItems, as: :categorized_item %>
 </div>
+
+
+<h2>Add Item To <%= @category.name %> Category</h2>
+<%= render partial: 'categories/category_item_form', locals: {:category => @category} %>
 
