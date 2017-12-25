@@ -14,11 +14,12 @@ class CategoryItemsController < ItemsController
     end
   end
 
-  #used for join table
+  #used for join table itself (e.g updating CategoryItem => note)
   def update
+    #checks 
     if params[:category_item].present?
       @category = Category.find(params[:id])
-      @category_item = CategoryItem.find(params[:category_id]) #category_id is actually category_item_id
+      @category_item = CategoryItem.find(params[:category_id]) #category_id, in this case, is actually category_item_id (join table record id)
       @category_item.update(category_items_params)
       redirect_to category_path(@category)
     else
@@ -40,11 +41,7 @@ class CategoryItemsController < ItemsController
   end
 
   def correct_item_path(item)
-  	if @category
-  		category_path(@category)
-  	else
-	    category_item_path(@category, item)
-	  end
+    category_path(@category)
   end
 
   def save_item

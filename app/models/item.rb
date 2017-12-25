@@ -47,7 +47,6 @@ class Item < ApplicationRecord
 			search_result.update(item_params)
 			search_result
 		else
-			# item.save
 			item
 		end
 	end

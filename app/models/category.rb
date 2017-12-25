@@ -12,12 +12,11 @@ class Category < ApplicationRecord
 			next if tag_attributes[:label].blank?
 			if tag_attributes[:id].blank?
 				tag = Tag.find_or_create_by(label: tag_attributes[:label])
-				self.tags << tag 
 			else
 				tag = Tag.find(tag_attributes[:id])
 				tag.update(label: tag_attributes[:label])
-				self.tags << tag
 			end
+			self.tags << tag
 		end
 	end
 
