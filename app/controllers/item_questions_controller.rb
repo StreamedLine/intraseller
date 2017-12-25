@@ -11,12 +11,13 @@ class ItemQuestionsController < ItemsController
 		item = Item.find(params[:item_id])
 		@question = Question.find(params[:id])
 
-		@question.answers.build(answer_params)
+		@answer = @question.answers.build(answer_params)
+    @answer.user_id = current_user.id
 
 		if @question.save 
       flash[:notice] = "Success! answer saved"
   	else
-      flash[:error] = "#{@item.errors.full_messages.first}"
+      flash[:error] = "#{item.errors.full_messages.first}"
   	end
   	redirect_to correct_item_path(item)
 	end
