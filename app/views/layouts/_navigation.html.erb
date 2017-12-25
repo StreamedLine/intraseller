@@ -1,7 +1,7 @@
 <nav>
 	<%= link_to 'Categories', categories_path %>
 	<%= link_to 'Items', items_path %>
-
+	<%= link_to 'Add Item', new_item_path %>
   <%= link_to "Sign in", new_user_session_path if !user_signed_in? %>
   <%= link_to "Sign up", new_user_registration_path if !user_signed_in? %>
 

@@ -1,5 +1,7 @@
 <h1>Categories</h1>
 
+<h3><%= link_to 'Add Category', new_category_path %></h3>
+
 <div class="basic_only">
 	<%= render partial: 'category', collection: @categories, as: :category %>
 </div>

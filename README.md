@@ -1,12 +1,10 @@
 todo:
 
-improve nav
-add links for new category/item
-
 add search
 make time/dates look nicer
 
 make views look nice
+	catgory show title
 
 (votes
 	bullets are votable
