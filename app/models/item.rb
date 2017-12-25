@@ -52,9 +52,10 @@ class Item < ApplicationRecord
 	end
 
 	def scrape_for_info(item, url)
-		if url.present? && (item[:bhsku].blank? || item[:mfrsku].blank? || item[:image].blank?)
+		if url.present? && (item[:title].blank? || item[:bhsku].blank? || item[:mfrsku].blank? || item[:image].blank?)
 			scrape_hash = scrape_page(url)
 			if scrape_hash
+				item[:title] = scrape_hash[:title] if item[:title].blank?
 				item[:bhsku] = scrape_hash[:bhsku] if item[:bhsku].blank?
 				item[:mfrsku] = scrape_hash[:mfrsku] if item[:mfrsku].blank?
 				item[:image] = scrape_hash[:image] if item[:image].blank?
@@ -72,6 +73,7 @@ class Item < ApplicationRecord
 		end
 		page = Nokogiri::HTML(source)
 		scraped = {}
+		scraped[:title] = page.at_css('.js-main-product-name').text.gsub(/[\t\n]/,'')
 		scraped[:bhsku] = page.at_css('.bh-mfr-numbers .c28').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
 		scraped[:mfrsku] = page.at_css('.mfr-number').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
 		scraped[:image] = page.at_css('#mainImage')[:src]
