@@ -1,4 +1,6 @@
 class ComparisonsController < ApplicationController
+	before_action :authenticate_user!
+	
 	def show
 		@comparison = target
 	end

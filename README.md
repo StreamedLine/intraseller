@@ -1,10 +1,12 @@
 todo:
 
-add search
-make time/dates look nicer
+authorization
 
 make views look nice
+	make time/dates look nicer
 
 (votes
 	bullets are votable
 	answers are votable)
+
+(add search)

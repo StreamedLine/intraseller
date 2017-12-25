@@ -1,4 +1,6 @@
 class CategoryItemsController < ItemsController
+  before_action :authenticate_user!
+  
   def new
     @category = category
   end

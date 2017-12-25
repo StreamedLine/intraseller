@@ -1,4 +1,6 @@
 class ItemQuestionsController < ItemsController
+  before_action :authenticate_user!
+  
 	def create 
 		@item = Item.find(params[:item_id])
 		@item.questions.build(question_params)
