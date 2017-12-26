@@ -1,8 +1,9 @@
 todo:
 
-Answers
-	answers should belong to users
-	track which users answered questions
+seperate question and answer controllers
+	(and perhaps having many controllers is better than multitasking)
+
+Allow things to be deleted by the authorized users
 
 Bullets
 	bullets should belong to users
