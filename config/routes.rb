@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :questions, only: [:create, :update, :delete], :controller => 'item_questions' do 
-    resources :answers, only: [:create, :update, :delete], :controller => 'question_answers'
+    resources :answers, only: [:create, :delete], :controller => 'question_answers'
   end
 
   resources :comparisons, only: [:show, :update]
+  resources :bullets, only: [:delete]
 end
