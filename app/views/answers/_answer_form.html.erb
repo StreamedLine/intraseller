@@ -1,4 +1,4 @@
-<%= form_for([item, question]) do |f| %>
+<%= form_for([question, answer]) do |f| %>
 		<%= fields_for :answer do |ff| %>
 			<%= ff.label :content, 'answer' %>
 			<%= ff.text_field :content %>

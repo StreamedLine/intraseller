@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   	resources :comparisons, only: [:show, :new, :create], :path_names => {:new => 'available_items'}
   end
 
+  resources :questions, only: [:create, :update, :delete], :controller => 'item_questions' do 
+    resources :answers, only: [:create, :update, :delete], :controller => 'question_answers'
+  end
+
   resources :comparisons, only: [:show, :update]
 end

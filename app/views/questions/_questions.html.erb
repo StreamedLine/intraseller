@@ -10,5 +10,5 @@
 		 <div class="low_profile">not yet answered</div>
 	<% end %>
 	
-	<%= render partial: 'answers/answer_form', locals: {:item => item, :question => question, :answer => question.answers.build} %>
+	<%= render partial: 'answers/answer_form', locals: {:question => question, :answer => question.answers.build} %>
 </div>
