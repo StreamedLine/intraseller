@@ -9,7 +9,7 @@
 		<h3>Quick Info</h3>
 		<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
 
-		<%= render partial: 'bullets/form', locals: {:target => item} %>
+		<%= render partial: 'bullets/form', locals: {:target => item, :bullet => item.bullets.build} %>
 	</div>
 
 	<!-- SECTION 3  COMPARISONS-->

@@ -1,7 +1,5 @@
-<%= form_for(target) do |f| %>
-	<%= f.fields_for :bullets, target.bullets.build do |ff| %>
-		<%= ff.text_field :nugget %>
-	<% end %>
-
+<%= form_for([target, bullet]) do |f| %>
+	<%= f.text_field :nugget %>
+	
 	<%= f.submit 'add point' %>
 <% end %>

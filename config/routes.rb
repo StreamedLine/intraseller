@@ -13,12 +13,19 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :new, :create, :edit, :update] do 
   	resources :questions, only: [:create, :update, :delete], :controller => 'item_questions'
   	resources :comparisons, only: [:show, :new, :create], :path_names => {:new => 'available_items'}
+    resources :bullets, only: [:create]
   end
 
   resources :questions, only: [:create, :update, :delete], :controller => 'item_questions' do 
-    resources :answers, only: [:create, :delete], :controller => 'question_answers'
+    resources :answers, only: [:create], :controller => 'question_answers'
   end
 
-  resources :comparisons, only: [:show, :update]
-  resources :bullets, only: [:delete]
+  resources :comparisons, only: [:show, :update] do 
+    resources :bullets, only: [:create]
+  end
+
+  resources :bullets, only: [:destroy]
+  resources :answers, only: [:destroy]
+
+  
 end

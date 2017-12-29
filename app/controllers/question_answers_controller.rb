@@ -7,21 +7,10 @@ class QuestionAnswersController < ApplicationController
 		if @answer.save
 			flash[:notice] = 'Answer added'
 		else
-			flsh[:error] = 'Answer not added'
+			flash[:error] = 'Answer not added'
 		end
 		redirect_back fallback_location: root_path
 	end
-
-	def delete
-		@answer = Answer.find(params[:id])
-		if @answer.user_id == current_user.id
-			@answer.destroy
-			flash[:notice] = 'Answer removed'
-		else
-			flash[:error] = 'Only author can remove answer'
-		end
-		redirect_back fallback_location: root_path
-	end	
 
 	private
 

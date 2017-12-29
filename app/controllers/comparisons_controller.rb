@@ -2,7 +2,7 @@ class ComparisonsController < ApplicationController
 	before_action :authenticate_user!
 	
 	def show
-		@comparison = target
+		@comparison = Comparison.find(params[:id])
 	end
 
 	def new
@@ -31,23 +31,13 @@ class ComparisonsController < ApplicationController
   		redirect_to comparison_path(@comparison)
   	else
       flash[:error] = "#{@comparison.errors.full_messages.first}"
-  		redirect_to item_path(target)
+  		redirect_to item_path(@comparison)
   	end
 	end
 
 	private
 
 	def comparison_params
-		params.require(:comparison).permit(:item_id, :compared_id, :bullets_attributes => [:nugget])
-	end
-
-	def target
-		if params[:item_id]
-			#is the comparison_id
-			#binding.pry
-			Item.find(params[:item_id]).comparisons.find(params[:id]) if params[:id]
-		else
-			Comparison.find(params[:id])
-		end
+		params.require(:comparison).permit(:item_id, :compared_id)
 	end
 end

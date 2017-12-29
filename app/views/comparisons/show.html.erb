@@ -13,5 +13,5 @@
 		<%= render partial: 'bullets/bullet', locals: {:bullet => bullet} %>
 	<% end %>
 
-	<%= render partial: 'bullets/form', locals: {:target => @comparison} %>
+	<%= render partial: 'bullets/form', locals: {:target => @comparison, :bullet => @comparison.bullets.build} %>
 </div>

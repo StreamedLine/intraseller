@@ -1,3 +1,6 @@
 <div class="nugget">
-	<%= bullet.nugget %> <span class='deleteX'>X</span>
+	<%= bullet.nugget %> 
+	<span class='deleteX'>
+		<%= link_to 'Delete', bullet_path(bullet), method: :delete, data: { confirm: 'Are you sure?' } %> 
+	</span>
 </div>
