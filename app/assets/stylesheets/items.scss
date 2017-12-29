@@ -26,17 +26,9 @@
 	display: block;
 }
 
-
 .basic_only .basic_item a {
 	font-size: 1.25em;
 }
-
-.inline_section {
-	display: inline-block;
-	vertical-align: top;
-	margin: 10px;
-	padding-right: 5em;
-}	
 
 .full_item {
 	border-left: 3px solid grey;
@@ -51,10 +43,4 @@
 
 .full_item .info_span {
 	display: block
-}
-
-.nugget::before {
-	content: "\2192";
-	margin-right: 1em;
-	color: brown;
 }

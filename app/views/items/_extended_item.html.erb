@@ -5,25 +5,26 @@
 	</div>
 	
 	<!-- SECTION 2  BULLETS-->
-	<div class="inline_section">
-		<h3 class="brown_text">Quick Info</h3>
+	<div class="inline_section sleekFrame">
+		<h3>Quick Info</h3>
 		<%= render partial: 'bullets/bullet', collection: item.bullets, as: :bullet %>
-		
-		<h4 class="brown_text">Add nugget here</h4>
+
 		<%= render partial: 'bullets/form', locals: {:target => item} %>
+	</div>
 
-		<hr>
-		<hr>
+	<!-- SECTION 3  COMPARISONS-->
+	<div class="inline_section sleekFrame">
+		<%= render partial: 'comparisons/comparisons_for_item', locals: {:item => item} %>
+	</div>
 
-		<h3 class="green_text">Q&A</h3>
+	<!-- SECTION 4  Q&A-->
+	<div class="sleekFrame">
+		<h3>Q&A</h3>
 		<%= render partial: 'questions/questions', collection: item.questions, as: :question, locals: {:item => item} %>
 
 		<h4 class="green_text">Add question here</h4>
 		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
 	</div>
 	
-	<!-- SECTION 3  COMPARISONS-->
-	<div class="inline_section comparisons">
-		<%= render partial: 'comparisons/comparisons_for_item', locals: {:item => item} %>
-	</div>
+	
 </div>

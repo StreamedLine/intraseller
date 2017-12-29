@@ -3,5 +3,5 @@
 <h5><%= link_to 'Compare New Item', new_item_comparison_path(item) %></h5>
 
 <% item.comparisons.each do |comparison| %>
-	<p><%= link_to comparison.compared.bhsku, item_comparison_path(item, comparison) %></p>
+	<p><%= link_to comparison.compared.title, item_comparison_path(item, comparison) %></p>
 <% end %>

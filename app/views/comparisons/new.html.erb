@@ -5,7 +5,16 @@
 
 Search: <input type="text" placeholder="PROTOTYPE. DOESN'T WORK">
 
-<% @available_items.each do |item| %>
-		<p><%= item.bhsku %></p>
-		<%= render partial: 'form', locals: {:item => @item, :compared => item, :comparison => @comparison} %>
-<% end %>
+<br>
+<br>
+
+<table>
+	<% @available_items.each do |item| %>
+		<tr>
+			<td>
+				<%= render partial: 'form', locals: {:item => @item, :compared => item, :comparison => @comparison} %>
+			</td>
+			<td><%= item.title %></td>
+		</tr>
+	<% end %>
+</table>

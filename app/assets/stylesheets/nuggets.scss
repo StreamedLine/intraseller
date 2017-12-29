@@ -1,0 +1,9 @@
+.nugget {
+	margin-bottom: 15px;
+}
+
+.nugget::before {
+	content: '\0025cb';
+  margin-right: 15px;
+  font-size: 1.25em;
+}
