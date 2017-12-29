@@ -9,8 +9,11 @@ class QuestionAnswersController < ApplicationController
 		else
 			flsh[:error] = 'Answer not added'
 		end
-
 		redirect_back fallback_location: root_path
+	end
+
+	def update
+
 	end
 
 	private
