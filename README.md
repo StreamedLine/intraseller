@@ -1,10 +1,17 @@
 todo:
 
-Allow answers and bullets to be deleted by the authorized users
+extended_item category section needs: links, partial
+need a way to add item to other categories
+
+welcome page displays stats relevant to user
+	how many bulletpoints added
+	how many answers
 
 make views look nice
 	make time/dates look nicer
 	margin between questions
+
+perhaps put delete button into method that creates element dynamically
 
 (votes
 	bullets are votable

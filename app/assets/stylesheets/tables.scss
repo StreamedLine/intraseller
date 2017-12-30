@@ -1,0 +1,14 @@
+ table.border,
+ .border th,
+ .border td {
+	border: 1px solid grey;
+}
+
+table.collapsed {
+	border-collapse: collapse;
+}
+
+table.padded th,
+table.padded td {
+	padding: 10px;
+}

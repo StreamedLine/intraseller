@@ -26,5 +26,22 @@
 		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
 	</div>
 	
-	
+	<div class="sleekFrame">
+		<h3>Categories</h3>
+
+		<table class="border collapsed padded">
+			<tr>
+				<th>Item</th>
+				<th>Category</th>
+				<th>Note</th>
+			</tr>
+			<% item.categoryItems.each do |categoryItem| %>
+				<tr>
+					<td><%= categoryItem.item.title %></td>
+					<td><%= categoryItem.category.name %></td>
+					<td><%= categoryItem.note %></td>
+				</tr>	
+			<% end %>
+		</table>
+	</div>
 </div>

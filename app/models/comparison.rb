@@ -8,8 +8,6 @@ class Comparison < ApplicationRecord
 		record.compared.compared << record.item unless record.compared.compared.include? record.item
 	end
 
-	accepts_nested_attributes_for :bullets, reject_if: proc { |attributes| attributes['nugget'].blank? }
-
 	def self.available_items_for(item)
 		Item.all - item.comparisons.map(&:compared) - [item]
 	end
