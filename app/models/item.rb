@@ -39,14 +39,19 @@ class Item < ApplicationRecord
 	end
 
 	def self.find_or_build_item_with_params(item_params)
-		item = self.new(item_params)
-		item.scrape_for_info(item, item_params[:links_attributes]['0'][:url]) 
-		search_result = self.find_by(bhsku: item[:bhsku], mfrsku: item[:mfrsku])
-		if search_result
-			search_result.update(item_params)
-			search_result
-		else
-			item
+		if item_params[:links_attributes].present?
+			item = self.new(item_params)
+			item.scrape_for_info(item, item_params[:links_attributes]['0'][:url]) 
+			search_result = self.find_by(bhsku: item[:bhsku], mfrsku: item[:mfrsku])
+			if search_result
+				search_result.update(item_params)
+				search_result
+			else
+				item
+			end
+		elsif item_params[:bhsku].present?
+			item = Item.find_by(bhsku: item_params[:bhsku]) 
+			return item if item
 		end
 	end
 
@@ -54,10 +59,10 @@ class Item < ApplicationRecord
 		if url.present? && (item[:title].blank? || item[:bhsku].blank? || item[:mfrsku].blank? || item[:image].blank?)
 			scrape_hash = scrape_page(url)
 			if scrape_hash
-				item[:title] = scrape_hash[:title] if item[:title].blank?
-				item[:bhsku] = scrape_hash[:bhsku] if item[:bhsku].blank?
-				item[:mfrsku] = scrape_hash[:mfrsku] if item[:mfrsku].blank?
-				item[:image] = scrape_hash[:image] if item[:image].blank?
+				item[:title] = scrape_hash[:title] #if item[:title].blank?
+				item[:bhsku] = scrape_hash[:bhsku] #if item[:bhsku].blank?
+				item[:mfrsku] = scrape_hash[:mfrsku] #if item[:mfrsku].blank?
+				item[:image] = scrape_hash[:image] #if item[:image].blank?
 			end
 		end
 	end

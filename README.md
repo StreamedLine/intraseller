@@ -1,7 +1,10 @@
 todo:
 
-extended_item category section needs: links, partial
-need a way to add item to other categories
+Item
+	extended_item category section needs: links, partial
+	need a way to add item to other categories
+
+perhaps a separate form for updating CategoryItem join table note
 
 welcome page displays stats relevant to user
 	how many bulletpoints added
