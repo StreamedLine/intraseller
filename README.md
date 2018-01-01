@@ -1,9 +1,5 @@
 todo:
 
-welcome page displays stats relevant to user
-	how many bulletpoints added
-	how many answers
-
 User
 	allow username to be added/updated from Welcome page
 

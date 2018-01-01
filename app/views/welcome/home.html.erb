@@ -1,16 +1,16 @@
 <h1>Welcome <%= current_user.email %></h1>
 
 <div class="sleekFrame">
-<h3>stats</h3>
+	<h3>stats</h3>
 
-<table>
-	<tr>
-		<th>bullet-points added</th>
-		<th>questions answered</th>
-	</tr>
-	<tr>
-		<td><%= @user_bullets.count %></td>
-		<td><%= @user_answers.count %></td>
-	</tr>
-</table>
+	<table>
+		<tr>
+			<th>bullet-points added</th>
+			<th>questions answered</th>
+		</tr>
+		<tr>
+			<td><%= @user_bullets.count %></td>
+			<td><%= @user_answers.count %> <%= link_to 'view', 'stats/answers' %></td>
+		</tr>
+	</table>
 </div>
