@@ -1,9 +1,5 @@
 todo:
 
-Item
-	extended_item category section needs: links, partial
-	need a way to add item to other categories
-
 welcome page displays stats relevant to user
 	how many bulletpoints added
 	how many answers
@@ -20,5 +16,5 @@ perhaps put delete button into method that creates element dynamically
 (votes
 	bullets are votable
 	answers are votable)
-
+(need a way to add item to other categories)
 (add search)
