@@ -16,4 +16,8 @@ class Comparison < ApplicationRecord
 		reverse_comparison = Comparison.find_by(compared_id: self.item.id, item_id: self.compared.id)
 		reverse_comparison.bullets + self.bullets
 	end
+
+	def title
+		"#{self.item.bhsku} <--> #{self.compared.bhsku}"
+	end
 end

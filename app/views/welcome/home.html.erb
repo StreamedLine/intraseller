@@ -13,13 +13,13 @@
 <div class="sleekFrame">
 	<h3>stats</h3>
 
-	<table>
+	<table class="border collapsed padded">
 		<tr>
 			<th>bullet-points added</th>
 			<th>questions answered</th>
 		</tr>
 		<tr>
-			<td><%= @user_bullets.count %></td>
+			<td><%= @user_bullets.count %> <%= link_to 'view', 'stats/bullets' %></td>
 			<td><%= @user_answers.count %> <%= link_to 'view', 'stats/answers' %></td>
 		</tr>
 	</table>

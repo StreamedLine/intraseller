@@ -1,8 +1,5 @@
 todo:
 
-User
-	allow username to be added/updated from Welcome page
-
 make views look nice
 	make time/dates look nicer
 	margin between questions

@@ -1,0 +1,14 @@
+<h3>Bullet-points Added</h3>
+
+<table class="border collapsed padded">
+	<tr>
+		<th>Target</th>
+		<th>Bullet-point</th>
+	</tr>
+	<% @bullets.each do |bullet| %>
+		<tr>
+			<td><%= bullet.bulletable.title %></td>
+			<td><%= bullet.nugget %></td>
+		</tr>
+	<% end %>
+</table>

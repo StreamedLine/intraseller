@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   resources :bullets, only: [:destroy]
   resources :answers, only: [:destroy]
 
-  get 'stats/answers' => 'stats#answers'
+  get 'stats/bullets' => 'stats#bullets'
   get 'stats/answers' => 'stats#answers'
   get 'home' => 'welcome#home'
   patch 'username' => 'welcome#update_username'
