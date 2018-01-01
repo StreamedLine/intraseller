@@ -1,5 +1,7 @@
 <div class="nugget">
-	<%= bullet.nugget %> 
+	<span title="added by <%= current_user.email %>">
+		<%= bullet.nugget %> 
+	</span>
 	<span class='deleteX'>
 		<%= link_to 'Delete', bullet_path(bullet), method: :delete, data: { confirm: 'Are you sure?' } %> 
 	</span>

@@ -4,11 +4,12 @@ Item
 	extended_item category section needs: links, partial
 	need a way to add item to other categories
 
-perhaps a separate form for updating CategoryItem join table note
-
 welcome page displays stats relevant to user
 	how many bulletpoints added
 	how many answers
+
+User
+	allow username to be added/updated from Welcome page
 
 make views look nice
 	make time/dates look nicer
