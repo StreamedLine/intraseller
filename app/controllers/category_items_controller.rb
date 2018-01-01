@@ -1,11 +1,14 @@
 class CategoryItemsController < ItemsController
   before_action :authenticate_user!
   
+  #item nested within category
   def new
     @category = category
   end
 
+  #item nested within category
   def create
+    #create category and item belonging to that category
     new_from_params
     if save_item
       flash[:notice] = "Success! #{@item.bhsku} saved"
@@ -14,26 +17,6 @@ class CategoryItemsController < ItemsController
       flash[:error] = "#{@item.errors.full_messages.first}"
       render :new
     end
-  end
-
-  #used for join table itself (e.g updating CategoryItem => note)
-  def update
-    #checks 
-    if params[:category_item].present?
-      @category = Category.find(params[:id])
-      @category_item = CategoryItem.find(params[:category_id]) #category_id, in this case, is actually category_item_id (join table record id)
-      @category_item.update(category_items_params)
-      redirect_to category_path(@category)
-    else
-      super
-    end
-  end
-
-  private
-  
-  #used for join table
-  def category_items_params
-    params.require(:category_item).permit(:note)
   end
 
   #All of the below methods for when item is created within context of category

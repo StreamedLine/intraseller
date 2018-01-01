@@ -31,15 +31,13 @@
 
 		<table class="border collapsed padded">
 			<tr>
-				<th>Item</th>
 				<th>Category</th>
 				<th>Note</th>
 			</tr>
 			<% item.categoryItems.each do |categoryItem| %>
 				<tr>
-					<td><%= categoryItem.item.title %></td>
-					<td><%= categoryItem.category.name %></td>
-					<td><%= categoryItem.note %></td>
+					<td><%= link_to categoryItem.category.name, category_path(categoryItem.category) %></td>
+					<td><%= categoryItem.note %> <%= link_to 'edit', edit_category_item_path(categoryItem) %></td>
 				</tr>	
 			<% end %>
 		</table>
