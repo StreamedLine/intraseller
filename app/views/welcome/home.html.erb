@@ -1,4 +1,14 @@
-<h1>Welcome <%= current_user.email %></h1>
+<h1>Welcome <%= current_user.username %></h1>
+
+<div class="sleekFrame">
+	<%= form_for(current_user, url: '/username') do |f| %>
+		<%= f.label :username %>
+		<%= f.text_field :username %>
+
+		<%= f.submit 'change username' %>
+	<% end %>
+</div>
+
 
 <div class="sleekFrame">
 	<h3>stats</h3>

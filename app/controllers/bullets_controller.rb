@@ -1,4 +1,6 @@
 class BulletsController < ApplicationController
+	before_action :authenticate_user!
+	
 	def create
 		parent = item_or_comparison
 		bullet = parent.bullets.build(bullets_params)
