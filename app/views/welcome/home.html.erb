@@ -1,26 +1,12 @@
 <h1>Welcome <%= current_user.username %></h1>
 
 <div class="sleekFrame">
-	<%= form_for(current_user, url: '/username') do |f| %>
-		<%= f.label :username %>
-		<%= f.text_field :username %>
-
-		<%= f.submit 'change username' %>
-	<% end %>
+	<%= render partial: 'username_form' %>
 </div>
 
 
 <div class="sleekFrame">
 	<h3>stats</h3>
 
-	<table class="border collapsed padded">
-		<tr>
-			<th>bullet-points added</th>
-			<th>questions answered</th>
-		</tr>
-		<tr>
-			<td><%= @user_bullets.count %> <%= link_to 'view', 'stats/bullets' %></td>
-			<td><%= @user_answers.count %> <%= link_to 'view', 'stats/answers' %></td>
-		</tr>
-	</table>
+	<%= render partial: 'stats/stat_table', locals: {user_bullets: @user_bullets, user_answers: @user_answers} %>
 </div>

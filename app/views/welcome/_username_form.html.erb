@@ -1,0 +1,6 @@
+<%= form_for(current_user, url: '/username') do |f| %>
+	<%= f.label :username %>
+	<%= f.text_field :username %>
+
+	<%= f.submit 'change username' %>
+<% end %>
