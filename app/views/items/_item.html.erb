@@ -3,13 +3,9 @@
 	<p>
 		<span class="info_span"><b>bh#</b> <%= item.bhsku %></span>
 		<span class="info_span"><b>mfr#</b> <%= item.mfrsku %></span>  
-		<span class="info_span"><b>updated_at:</b> <%= item.updated_at %></span>  
-		<span class="info_span"><b>created at:</b> <%= item.created_at %></span>
+		<span class="info_span"><b>updated_at:</b> <%= updated_at(item) %></span>  
 		<%= link_to 'edit item', edit_item_path(item) %>
 	</p>
 
 	<%= render partial: 'tags/tags', locals: {:taggable_item => item} %>
 </div>
-
-
-

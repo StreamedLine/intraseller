@@ -1,8 +1,8 @@
 <div class="basic_item">
 	<h3><%= link_to "#{category.name}", category_path(category) %></h3>
   <p>
-  	<span class="info_span"><b>updated_at:</b> <%= category.updated_at %></span>  
-		<span class="info_span"><b>created at:</b> <%= category.created_at %></span>
+  	<span class="info_span"><b>updated_at:</b> <%= updated_at(category) %></span>  
+		<br>
 		<br>
 		<%= link_to 'add item', new_category_item_path(category), class: 'steelblue_text' %> |
 		<%= link_to 'edit category', edit_category_path(category), class: 'grey_text' %>

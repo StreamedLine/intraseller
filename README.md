@@ -1,7 +1,6 @@
 todo:
 
 make views look nice
-	make time/dates look nicer
 	margin between questions
 
 perhaps put delete button into method that creates element dynamically
