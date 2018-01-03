@@ -10,4 +10,8 @@ class Question < ApplicationRecord
 	def answer_for_view
 		self.answers.build
 	end
+
+	def answers_count
+		self.answers.count
+	end
 end

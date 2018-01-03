@@ -5,7 +5,7 @@
 	</tr>
 	<% item.categoryItems.each do |categoryItem| %>
 		<tr>
-			<td><%= link_to categoryItem.category.name, category_path(categoryItem.category) %></td>
+			<td><%= link_to categoryItem.category_name, category_path(categoryItem.category) %></td>
 			<td><%= categoryItem.note %> <%= link_to 'edit', edit_category_item_path(categoryItem) %></td>
 		</tr>	
 	<% end %>

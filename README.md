@@ -1,5 +1,7 @@
 todo:
 
+work on comparison show page
+
 make views look nice
 	margin between questions
 

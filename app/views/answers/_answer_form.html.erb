@@ -1,6 +1,6 @@
 <%= form_for([question, answer]) do |f| %>
 		<%= fields_for :answer do |ff| %>
-			<%= ff.label :content, 'answer' %>
+			<%= ff.label :content, 'add answer' %>
 			<%= ff.text_field :content %>
 		<% end %>
 
