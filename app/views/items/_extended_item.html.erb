@@ -20,11 +20,11 @@
 	<!-- SECTION 4  Q&A-->
 	<div class="sleekFrame">
 		<h3>Q&A</h3>
-		<%= render partial: 'questions/questions', collection: item.questions, as: :question, locals: {:item => item} %>
+		<%= render partial: 'questions/questions', collection: item.questions, as: :question %>
 		
 		<hr>
 		<h4 class="green_text">Add question here</h4>
-		<%= render partial: 'questions/form', locals: {:item => item, :question => item.questions.build} %>
+		<%= render partial: 'questions/form', locals: {:parent => item, :question => item.questions.build} %>
 	</div>
 	
 	<div class="sleekFrame">

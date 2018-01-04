@@ -1,13 +1,9 @@
-class ItemQuestionsController < CategoriesController
+class CategoryQuestionsController < CategoriesController
   before_action :authenticate_user!
   
 	def create 
-		@category = Item.find(params[:category_id])
+		@category = Category.find(params[:category_id])
 		@category.questions.build(question_params)
-		super
-	end
-
-	def update
 		super
 	end
 

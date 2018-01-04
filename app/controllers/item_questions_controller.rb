@@ -7,10 +7,6 @@ class ItemQuestionsController < ItemsController
 		super
 	end
 
-	def update
-		super
-	end
-
 	private
 
   def new_from_params

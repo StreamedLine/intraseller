@@ -8,17 +8,18 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show, :new, :create, :edit, :update] do 
   	resources :items, only: [:index, :show, :new, :create, :update], :controller => 'category_items'
+    resources :questions, only: [:create, :delete], :controller => 'category_questions'
   end
 
   resources :category_items, only: [:edit, :update], :controller => 'category_item_joins'
 
   resources :items, only: [:index, :show, :new, :create, :edit, :update] do 
-  	resources :questions, only: [:create, :update, :delete], :controller => 'item_questions'
+  	resources :questions, only: [:create, :delete], :controller => 'item_questions'
   	resources :comparisons, only: [:show, :new, :create], :path_names => {:new => 'available_items'}
     resources :bullets, only: [:create]
   end
 
-  resources :questions, only: [:create, :update, :delete], :controller => 'item_questions' do 
+  resources :questions, only: [:create, :delete] do 
     resources :answers, only: [:create], :controller => 'question_answers'
   end
 
