@@ -1,7 +1,5 @@
 todo:
 
-add q&a for categories?
-
 perhaps put delete button into method that creates element dynamically
 
 (votes
