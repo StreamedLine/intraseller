@@ -35,4 +35,9 @@ class Category < ApplicationRecord
 		end
 		item
 	end
+
+	def title
+		self.name
+	end 
+
 end

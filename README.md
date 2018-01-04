@@ -1,9 +1,6 @@
 todo:
 
-work on comparison show page
-
-make views look nice
-	margin between questions
+add q&a for categories?
 
 perhaps put delete button into method that creates element dynamically
 

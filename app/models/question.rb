@@ -14,4 +14,9 @@ class Question < ApplicationRecord
 	def answers_count
 		self.answers.count
 	end
+
+	def self.unanswered
+		all_questions = self.all 
+		unanswered_questions = all_questions - all_questions.joins(:answers)
+	end
 end

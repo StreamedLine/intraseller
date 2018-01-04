@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-  	@category = Category.new(category_params)
+  	@category = new_from_params
 
   	if @category.save
       flash[:notice] = "Success! #{@category.name} added"
@@ -51,5 +51,9 @@ class CategoriesController < ApplicationController
       items_attributes: [:bhsku, :mfrsku, :image, links_attributes: [:url]],
       tags_attributes: [:label, :id]
     )
+  end
+
+  def new_from_params
+    Category.new(category_params)
   end
 end

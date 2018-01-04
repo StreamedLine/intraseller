@@ -1,0 +1,14 @@
+<h3>Unanswered Questions</h3>
+
+<table class="border collapsed padded">
+		<tr>
+			<td>Target</td>
+			<td>Question</td>
+		</tr>
+	<% @unanswered_questions.each do |question| %>
+		<tr>
+			<td><%= link_to parent_title(question), parent_path(question) %></td>
+			<td><%= question.content %></td>
+		</tr>
+	<% end %>	
+</table>

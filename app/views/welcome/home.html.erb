@@ -10,3 +10,6 @@
 
 	<%= render partial: 'stats/stat_table', locals: {user_bullets: @user_bullets, user_answers: @user_answers} %>
 </div>
+
+<br>
+<%= link_to 'View All Unanswered Questions', stats_unanswered_path %>

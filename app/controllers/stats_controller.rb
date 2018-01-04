@@ -8,4 +8,8 @@ class StatsController < ApplicationController
 	def answers
 		@answers = Answer.created_by(current_user.id)
 	end
+
+	def unanswered
+		@unanswered_questions = Question.unanswered
+	end
 end

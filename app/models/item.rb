@@ -77,7 +77,7 @@ class Item < ApplicationRecord
 		end
 		page = Nokogiri::HTML(source)
 		scraped = {}
-		scraped[:title] = page.at_css('.js-main-product-name').text.gsub(/[[:space:]]/,' ')
+		scraped[:title] = page.at_css('.js-main-product-name').text.squish.gsub(/[[:space:]]/,' ')
 		scraped[:bhsku] = page.at_css('.bh-mfr-numbers .c28').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
 		scraped[:mfrsku] = page.at_css('.mfr-number').text.gsub(/[[:space:]]|B&H|MFR|#/i, '')
 		scraped[:image] = page.at_css('#mainImage')[:src]
