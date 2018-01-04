@@ -1,4 +1,29 @@
 .squish_width {
 	margin-top: 20px;
 	max-width: 400px;
+	diplay: inline-block;
+	margin: 0 auto;
+}
+
+.enlarge {
+	font-size: 3em;
+	vertical-align: middle;
+	color: green;
+}
+
+.comparison_main {
+	text-align: center
+}
+.comparison_main .sleekFrame {
+	text-align: left;
+}
+
+.comparison_header {
+	border: 3px solid blue;	
+	display: inline-block;
+	padding: 5px 20px;;
+}
+
+.comparison_header a {
+	text-decoration: none
 }

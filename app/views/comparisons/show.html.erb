@@ -1,17 +1,14 @@
-<h1>Comparison Details</h1>
+<div class="comparison_main">
+	<h1>Comparison Details</h1>
+	<%= render partial: 'comparisons/compared_items', locals: {:comparison => @comparison} %>
 
+	<div class="sleekFrame squish_width">
+		<h3>quick comparison</h3>
+		<% @comparison.get_bullets.each do |bullet| %>
+			<%= render partial: 'bullets/bullet', locals: {:bullet => bullet} %>
+		<% end %>
 
-<%= @comparison.item.bhsku %>
-<img src="<%= @comparison.item.image %>" class="small_image alignmiddle"> 
-<--> 
-<img src="<%= @comparison.compared.image %>" class="small_image alignmiddle">
-<%= @comparison.compared.bhsku %>
+		<%= render partial: 'bullets/form', locals: {:target => @comparison, :bullet => @comparison.bullets.build} %>
+	</div>
 
-<div class="sleekFrame squish_width">
-	<h3>quick comparison</h3>
-	<% @comparison.get_bullets.each do |bullet| %>
-		<%= render partial: 'bullets/bullet', locals: {:bullet => bullet} %>
-	<% end %>
-
-	<%= render partial: 'bullets/form', locals: {:target => @comparison, :bullet => @comparison.bullets.build} %>
 </div>

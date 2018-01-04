@@ -1,0 +1,13 @@
+<div class="comparison_header">
+	<%= link_to item_path(comparison.item) do %>
+		<%= comparison.item.title %>
+		<img src="<%= comparison.item.image %>" class="small_image alignmiddle"> 
+	<% end %>
+
+	<span class="enlarge">&#8660;</span>
+
+	<%= link_to item_path(comparison.compared) do %>
+		<img src="<%= comparison.compared.image %>" class="small_image alignmiddle">
+		<%= comparison.compared.title %>
+	<% end %>
+</div>

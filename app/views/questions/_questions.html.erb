@@ -3,7 +3,7 @@
 	
 	<% if question.answers_count > 0 %>
 		<details>
-			<summary><%=  "#{question.answers.count} answers available" %></summary>
+			<summary><%=  "#{question.answers.count} answers" %></summary>
 			<%= render partial: 'answers/answer', collection: question.answers, as: :answer %>
 		</details>
 	<% else %>
