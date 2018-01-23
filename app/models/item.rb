@@ -51,7 +51,7 @@ class Item < ApplicationRecord
 			end
 		elsif item_params[:bhsku].present?
 			item = Item.find_by(bhsku: item_params[:bhsku]) 
-			return item if item
+			#return item if item
 		end
 	end
 

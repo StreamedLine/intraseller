@@ -7,7 +7,7 @@
 	</tr>
 	<% @bullets.each do |bullet| %>
 		<tr>
-			<td><%= link_to bullet.bulletable.title, parent_path(bullet) %></td>
+			<td><%= link_to bullet.bulletable.title, bullet_parent_path(bullet) %></td>
 			<td><%= bullet.nugget %></td>
 		</tr>
 	<% end %>
