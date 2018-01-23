@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   end
   root to: redirect('/users/sign_in')
 
+  resources :searches, only: [:new]
+  get 'searches/search' => 'searches#search'
+
   resources :categories, only: [:index, :show, :new, :create, :edit, :update] do 
   	resources :items, only: [:index, :show, :new, :create, :update], :controller => 'category_items'
     resources :questions, only: [:create, :delete], :controller => 'category_questions'

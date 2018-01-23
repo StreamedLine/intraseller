@@ -1,0 +1,6 @@
+<br><br>
+<%= render partial: 'searches/form', locals: {:search => @search} %>
+
+<% @results.each do |result| %>
+	<p><%= result_enhancer(result) %></p>
+<% end %>

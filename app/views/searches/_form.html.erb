@@ -1,0 +1,6 @@
+<%= form_for(search, :url => searches_search_path, :html => {method: 'GET'}) do |f| %>
+	<%= f.label :keyword %>
+	<%= f.text_field :keyword %>
+
+	<%= f.submit %>
+<% end %>
