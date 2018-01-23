@@ -30,3 +30,26 @@ Every item page allows you to see how that item fits into every category it is p
 It also displays a list of all items that have been compared to it.
 
 Although Intraseller could be used by any company, this initial release had my current company in mind, this is reflected by the web scraper and other cosmetic parts of the application.
+
+
+INSTALLATION GUIDE
+-------------------
+
+Once you clone the project and start a server, anyone on the company network will have access to the page.
+
+
+CONTRIBUTERS GUIDE
+------------------
+
+If you'd like to contribute to this project, feel free to email me first at dovidlwtn@gmail.com.
+
+All feedback and contributions are welcome.
+
+
+
+
+MIT License
+
+Copyright (c) 2018 StreamedLine
+
+see ./LICENSE
